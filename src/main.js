@@ -5,6 +5,7 @@
 // =============================================================================
 
 import './styles/style.css';
+import './styles/textures.css';
 import { PROJECTS } from './data/projects.js';
 import { SERIES } from './data/series.js';
 import { SCRIPTS } from './data/scripts.js';

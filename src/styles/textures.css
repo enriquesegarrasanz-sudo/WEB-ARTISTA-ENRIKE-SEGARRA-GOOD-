@@ -1,0 +1,131 @@
+/* ===================================================================
+   TEXTURES — Sistema de capas collage reutilizable
+   Orden de importación: después de style.css (desde main.js)
+   =================================================================== */
+
+/* --- Variables de textura en :root --- */
+:root {
+  --tx-paper:  url('/textures/paper-base.png');
+  --tx-grain:  url('/textures/grain-overlay.png');
+  --tx-tear-t: url('/textures/tear-edge-top.png');
+  --tx-tear-b: url('/textures/tear-edge-bottom.png');
+}
+
+/* --- Base: capa absoluta sin interacción --- */
+.tx-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* --- Papel como background de sección (blend sobre color sólido) --- */
+.tx-paper {
+  background-image: var(--tx-paper);
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: multiply;
+}
+
+/* --- Grano de impresión: tile repeat, blend overlay --- */
+.tx-grain {
+  background-image: var(--tx-grain);
+  background-size: 512px 512px;
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+  opacity: 0.35;
+}
+
+/* --- Borde rasgado superior (transparent abajo, papel arriba) --- */
+.tx-tear-top {
+  background-image: var(--tx-tear-t);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* --- Borde rasgado inferior (papel abajo, transparent arriba) --- */
+.tx-tear-bottom {
+  background-image: var(--tx-tear-b);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 80px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ===================================================================
+   HERO — Aplicación del sistema de texturas
+   Principio: añadir capas, no reescribir estilos existentes.
+   =================================================================== */
+
+/* El hero necesita un background explícito para que multiply funcione
+   de forma predecible (sin depender del stacking global del body) */
+.hero {
+  background-color: var(--paper);
+}
+
+/* Eleva el contenido funcional del hero por encima de las capas de textura */
+.hero .hero-stage,
+.hero .hero-footer {
+  position: relative;
+  z-index: 2;
+}
+
+/* Capa 1 — Fondo editorial completo (papel envejecido + formas Bauhaus) */
+.hero-bg-bauhaus {
+  background-image: url('/textures/hero-bauhaus-bg.png');
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: multiply;
+  opacity: 0.82;
+  z-index: 0;
+}
+
+/* Capa 2 — Formas Bauhaus adicionales, desplazadas para sensación de collage */
+.hero-bg-shapes {
+  background-image: url('/textures/hero-shapes-overlay.png');
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: multiply;
+  opacity: 0.65;
+  transform: rotate(3deg) translate(60px, -40px);
+  transform-origin: center;
+  z-index: 0;
+}
+
+/* Capa 3 — Manchas de tinta dispersas */
+.hero-bg-ink {
+  background-image: url('/textures/hero-ink-splatter.png');
+  background-size: cover;
+  background-position: center;
+  mix-blend-mode: multiply;
+  opacity: 0.28;
+  z-index: 0;
+}
+
+/* Capa 4 — Grano de impresión sobre el fondo (detrás del Vitruvio) */
+.hero-bg-grain {
+  background-image: var(--tx-grain);
+  background-size: 512px 512px;
+  background-repeat: repeat;
+  mix-blend-mode: overlay;
+  opacity: 0.40;
+  z-index: 1;
+}
+
+/* Accesibilidad: sin movimiento → desactiva transforms de capas */
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-shapes {
+    transform: none;
+  }
+}
