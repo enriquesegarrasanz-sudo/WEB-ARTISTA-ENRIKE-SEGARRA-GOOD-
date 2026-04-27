@@ -5,7 +5,7 @@
 
 :root {
   --tx-paper:       url('/textures/paper-base-elegant.png');
-  --tx-hero-canvas: url('/textures/hero-bauhaus-canvas.png');
+  --tx-hero-canvas: url('/textures/hero-bauhaus-canvas.webp');
   --tx-tear-clean:  url('/textures/tear-edge-clean.png');
   --tx-fiber:       url('/textures/paper-fiber-overlay.png');
 }
@@ -68,12 +68,8 @@
 .hero-bg-canvas {
   background-image: var(--tx-hero-canvas);
   background-size: cover;
-  background-position: center right;
-  mix-blend-mode: multiply;
-  opacity: 0.92;
+  background-position: center;
+  mix-blend-mode: normal;
+  opacity: 1;
   z-index: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-bg-canvas { opacity: 0.88; }
 }
