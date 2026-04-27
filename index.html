@@ -43,7 +43,16 @@
 <section class="hero" id="hero">
   <div class="hero-stage">
     <div class="vitruvio">
-      <img src="/hero-vitruvio.png" alt="Enrike Segarra como Hombre de Vitruvio contemporáneo: seis brazos sosteniendo cámara de foto, cámara de cine, guion, máscara, guitarra y tablet de IA">
+      <!-- Canon de Vitruvio: círculo + cuadrado SVG que se dibujan en la entrada -->
+      <svg class="vitruvio-canon" viewBox="0 0 100 100" aria-hidden="true">
+        <circle class="canon-circle" cx="50" cy="50" r="46" fill="none"/>
+        <rect   class="canon-square" x="6" y="6" width="88" height="88" fill="none"/>
+      </svg>
+
+      <img class="vitruvio-img" src="/hero-vitruvio.png" alt="Enrike Segarra como Hombre de Vitruvio contemporáneo: seis brazos sosteniendo cámara de foto, cámara de cine, guion, máscara, guitarra y tablet de IA">
+
+      <!-- Spotlight overlay: aparece cuando hay hover en una zona -->
+      <div class="vitruvio-spotlight" aria-hidden="true"></div>
 
       <!-- Zonas clickables sobre la imagen.
            Cada una lleva al ancla correspondiente. -->

@@ -18,14 +18,56 @@ import { SCRIPTS } from './data/scripts.js';
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  /* ============== Hero zones ============== */
+  /* ============== Hero zones — interacción ==============
+     Tres comportamientos:
+     1. Hover: activa spotlight (oscurece resto del Vitruvio).
+     2. Click: flash bermellón breve + scroll suave a la sección.
+     3. Parallax sutil del Hero al scrollear (se desactiva en móvil
+        y si el usuario pidió reducir movimiento). */
+  const vitruvio = document.querySelector('.vitruvio');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   document.querySelectorAll('.hero-zone').forEach(zone => {
+    zone.addEventListener('mouseenter', () => {
+      if (vitruvio) vitruvio.classList.add('is-spotlight');
+    });
+    zone.addEventListener('mouseleave', () => {
+      if (vitruvio) vitruvio.classList.remove('is-spotlight');
+    });
+
     zone.addEventListener('click', () => {
+      // Flash bermellón
+      zone.classList.add('is-flashing');
+      setTimeout(() => zone.classList.remove('is-flashing'), 220);
+
+      // Scroll suave a la sección, con un pequeño retardo para que se vea el flash
       const id = zone.dataset.target;
       const target = document.getElementById(id);
-      if (target) target.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 140);
     });
   });
+
+  /* Parallax sutil: el Hero entero se desplaza un poco más lento que
+     el scroll real. Aplicado a .hero-stage para no pisar las animaciones
+     de entrada/respiración que viven en .vitruvio y .vitruvio-img.
+     Solo en desktop y si no hay reduce-motion. */
+  const heroStage = document.querySelector('.hero-stage');
+  if (heroStage && !reduceMotion && window.innerWidth > 720) {
+    let pending = false;
+    window.addEventListener('scroll', () => {
+      if (pending) return;
+      pending = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        if (y < window.innerHeight) {
+          heroStage.style.transform = `translate3d(0, ${y * 0.12}px, 0)`;
+        }
+        pending = false;
+      });
+    }, { passive: true });
+  }
 
   /* ============== Lightbox — base + router ============== */
   const lightbox       = document.getElementById('lightbox');
