@@ -274,49 +274,34 @@
 
     .hero-figure {
       left: 50%;
-      top: 13%;
+      top: 22%;
       height: 37%;
     }
 
     .hero-nav--desktop-tablet {
-      display: none;
-    }
-
-    .hero-menu-button {
       position: absolute;
-      top: 42px;
-      right: 42px;
-      z-index: 6;
-      background: transparent;
-      border: none;
-      padding: 0;
-      font-size: 14px;
-      letter-spacing: 1.2px;
-      cursor: pointer;
-    }
-
-    .hero-mobile-menu {
-      position: absolute;
-      top: 76px;
-      right: 34px;
-      z-index: 7;
+      top: 26px;
+      right: 14px;
+      width: 57%;
       display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 10px;
-      padding: 14px 16px;
-      background: rgba(241, 235, 221, 0.82);
-      backdrop-filter: blur(6px);
-      border: 1px solid rgba(25, 25, 25, 0.12);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      align-content: flex-start;
+      white-space: normal;
+      gap: 5px 11px;
+      z-index: 6;
+      font-family: "Bebas Neue", "Archivo Condensed", "Arial Narrow", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      line-height: 1;
+      text-transform: uppercase;
+      color: #111111;
     }
 
-    .hero-mobile-menu[hidden] {
+    .hero-menu-button,
+    .hero-mobile-menu {
       display: none;
-    }
-
-    .hero-mobile-menu a {
-      font-size: 13px;
-      letter-spacing: 1.1px;
     }
   }
 
