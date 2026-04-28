@@ -274,21 +274,20 @@
 
     .hero-figure {
       left: 50%;
-      top: 22%;
-      height: 37%;
+      top: 24%;
+      height: 41%;
     }
 
     .hero-nav--desktop-tablet {
       position: absolute;
       top: 26px;
+      left: 54px;
       right: 14px;
-      width: 57%;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      align-content: flex-start;
-      white-space: normal;
-      gap: 5px 11px;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      white-space: nowrap;
       z-index: 6;
       font-family: "Bebas Neue", "Archivo Condensed", "Arial Narrow", sans-serif;
       font-size: 12px;
