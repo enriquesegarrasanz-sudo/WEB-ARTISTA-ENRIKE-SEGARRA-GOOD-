@@ -81,38 +81,28 @@
   }
 
   /* ===================================================================
-     NAVIGATION — 6 disciplinas + about + contact
+     HERO — base nav / button shared styles
      =================================================================== */
-  nav.top {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 22px var(--gut);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    color: var(--ink);
+  .hero-nav,
+  .hero-mobile-menu,
+  .hero-menu-button {
+    font-family: "Archivo Condensed", "Arial Narrow", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #191919;
   }
 
-  nav.top ul {
-    list-style: none;
-    display: flex;
-    gap: 38px;
-    font-family: var(--font-display);
-    letter-spacing: 0.22em;
-    font-size: 15px;
-  }
-
-  nav.top a {
+  .hero-nav a,
+  .hero-mobile-menu a {
     color: inherit;
     text-decoration: none;
-    transition: opacity .25s;
+    transition: opacity 0.2s ease, transform 0.2s ease;
   }
 
-  nav.top a:hover { opacity: 0.55; }
-
-  @media (max-width: 860px) {
-    nav.top ul { display: none; }
+  .hero-nav a:hover,
+  .hero-mobile-menu a:hover,
+  .hero-menu-button:hover {
+    opacity: 0.55;
   }
 
   /* ===================================================================
@@ -166,205 +156,145 @@
   }
 
   /* ===================================================================
-     HERO — IMAGEN VITRUVIO ÚNICA + ZONAS CLICKABLES
-     ===================================================================
-     Filosofía: una sola imagen estática (la generada en GPT-Image),
-     centrada, con AIRE generoso alrededor. Las zonas clickables son
-     divs absolutos transparentes que en hover dan feedback sutil.
-     En el futuro la imagen puede separarse en capas para animarla. */
+     HERO — estructura responsive con tres fondos art-directed
+     =================================================================== */
   .hero {
-    width: 100%;
-    height: 100svh;
-    padding: 0;
-    display: grid;
-    grid-template-areas: "stack";
-    overflow: hidden;
     position: relative;
-  }
-
-  /* Hero-stage: capa transparente que cubre todo el hero.
-     El vitruvio rellena este contenedor para que las zonas
-     clickables usen % relativos al hero completo (no al PNG). */
-  .hero-stage {
-    grid-area: stack;
-    position: absolute;
-    inset: 0;
-    display: block;
-    z-index: 12;
-  }
-
-  /* Vitruvio: contenedor cuadrado centrado donde vive la figura
-     y sus zonas clickables (calibradas en % del PNG 800×800). */
-  .vitruvio {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: min(56svh, 40vw);
-    aspect-ratio: 1 / 1;
-  }
-
-  .vitruvio-img {
-    display: block;
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    overflow: hidden;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .hero-figure {
+    position: absolute;
+    width: auto;
+    transform: translateX(-50%);
+    z-index: 3;
     pointer-events: none;
     user-select: none;
   }
-  .vitruvio-canon     { display: none; }
-  .vitruvio-spotlight { display: none; }
 
-  /* Zonas clickables: divs transparentes posicionados sobre los 6 bloques */
-  .hero-zone {
-    position: absolute;
-    z-index: 4;
-    cursor: pointer;
-    transition: transform .4s cubic-bezier(.2,.7,.2,1);
-  }
-
-  .hero-zone:hover {
-    transform: scale(1.05);
-  }
-
-  /* Label tipo poster Nouvelle Vague: Bebas Neue bermellón sobre papel */
-  .hero-zone::after {
-    content: attr(data-label);
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-5px);
-    margin-top: 14px;
-    font-family: var(--font-display);
-    font-size: 14px;
-    letter-spacing: 0.34em;
-    color: var(--red);
-    background: transparent;
-    padding: 4px 0;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .2s ease, transform .25s cubic-bezier(.25,.46,.45,.94);
-    z-index: 5;
-  }
-
-  .hero-zone:hover::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  /* Flash bermellón al hacer click sobre una zona */
-  .hero-zone.is-flashing {
-    outline: 2px solid var(--red);
-    transition: outline .15s ease;
-  }
-
-  /* Coordenadas en % del cuadrado .vitruvio (PNG 800×800, figura centrada). */
-  .zone-foto    { top: 6%;  left: 14%; width: 22%; height: 22%; --section-accent: var(--blue); }
-  .zone-cine    { top: 5%;  left: 62%; width: 22%; height: 22%; --section-accent: var(--red); }
-  .zone-escritor{ top: 28%; left: 2%;  width: 24%; height: 22%; --section-accent: var(--ink); }
-  .zone-ai      { top: 28%; left: 70%; width: 22%; height: 20%; --section-accent: var(--mustard); }
-  .zone-actor   { top: 50%; left: 14%; width: 20%; height: 18%; --section-accent: var(--mustard); }
-  .zone-musica  { top: 46%; left: 58%; width: 32%; height: 44%; --section-accent: var(--green); }
-
-  /* Hero footer — anclado abajo en el mismo cell de grid que .hero-stage.
-     El nombre arranca en el margen natural (--gut del hero), la figura
-     queda por encima envolviendo el nombre. */
-  .hero-footer {
-    grid-area: stack;
-    align-self: end;
-    justify-self: start;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    gap: clamp(20px, 4vw, 60px);
-    flex-wrap: wrap;
-    max-width: var(--container);
-    width: 100%;
-    position: relative;
-    padding-left: 0;
-    padding-bottom: clamp(15px, 2vh, 25px);
-  }
-
-  .hero-name {
-    font-family: var(--font-display);
-    font-size: clamp(64px, 13vw, 200px);
-    line-height: 0.85;
-    letter-spacing: -0.02em;
-    text-transform: uppercase;
-  }
-
-  .hero-name .accent { color: var(--red); }
-
-  .hero-meta-group {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    border-left: 1.5px solid var(--ink);
-    padding-left: 26px;
-    max-width: 320px;
-  }
-
-  .hero-meta {
-    font-family: var(--font-editorial);
-    font-style: italic;
-    font-size: 17px;
-    text-align: left;
-    color: var(--ink-soft);
-    line-height: 1.45;
-  }
-
-  .hero-barcode {
-    width: 72px;
-    height: 22px;
-    background-image: repeating-linear-gradient(
-      90deg,
-      var(--ink) 0,      var(--ink) 2px,
-      transparent 2px,   transparent 5px,
-      var(--ink) 5px,    var(--ink) 8px,
-      transparent 8px,   transparent 10px,
-      var(--ink) 10px,   var(--ink) 11px,
-      transparent 11px,  transparent 14px,
-      var(--ink) 14px,   var(--ink) 17px,
-      transparent 17px,  transparent 19px,
-      var(--ink) 19px,   var(--ink) 22px,
-      transparent 22px,  transparent 26px,
-      var(--ink) 26px,   var(--ink) 28px,
-      transparent 28px,  transparent 32px,
-      var(--ink) 32px,   var(--ink) 35px,
-      transparent 35px,  transparent 37px,
-      var(--ink) 37px,   var(--ink) 39px,
-      transparent 39px,  transparent 43px,
-      var(--ink) 43px,   var(--ink) 47px,
-      transparent 47px,  transparent 50px,
-      var(--ink) 50px,   var(--ink) 52px,
-      transparent 52px,  transparent 56px,
-      var(--ink) 56px,   var(--ink) 59px,
-      transparent 59px,  transparent 62px,
-      var(--ink) 62px,   var(--ink) 65px,
-      transparent 65px,  transparent 68px,
-      var(--ink) 68px,   var(--ink) 70px,
-      transparent 70px,  transparent 72px
-    );
-  }
-
-  @media (max-width: 720px) {
-    .hero { aspect-ratio: unset; min-height: 100svh; }
-    .hero-meta-group { border-left: none; padding-left: 0; max-width: none; }
-    .hero-meta { text-align: left; }
-  }
-
-  /* Accesibilidad: respeta prefers-reduced-motion */
-  @media (prefers-reduced-motion: reduce) {
-    .vitruvio,
-    .vitruvio-img,
-    .vitruvio-canon circle,
-    .vitruvio-canon rect {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
+  /* Desktop ≥ 1181px */
+  @media (min-width: 1181px) {
+    .hero {
+      aspect-ratio: 2 / 1;
+      background-image: url('/HERO%20PC.png');
     }
-    .vitruvio-canon .canon-circle { stroke-dashoffset: 0; opacity: 0.18; }
-    .vitruvio-canon .canon-square { stroke-dashoffset: 0; opacity: 0.18; }
+
+    .hero-figure {
+      left: 52%;
+      top: 8%;
+      height: 64%;
+    }
+
+    .hero-nav--desktop-tablet {
+      position: absolute;
+      top: 44px;
+      right: 135px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      z-index: 5;
+      font-size: 14px;
+      letter-spacing: 1.2px;
+    }
+
+    .hero-menu-button,
+    .hero-mobile-menu {
+      display: none;
+    }
+  }
+
+  /* Tablet 769px–1180px */
+  @media (min-width: 769px) and (max-width: 1180px) {
+    .hero {
+      aspect-ratio: 4 / 3;
+      background-image: url('/HERO%20TABLET.png');
+    }
+
+    .hero-figure {
+      left: 54%;
+      top: 8.5%;
+      height: 54%;
+    }
+
+    .hero-nav--desktop-tablet {
+      position: absolute;
+      top: 38px;
+      right: 58px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      z-index: 5;
+      font-size: 12px;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .hero-menu-button,
+    .hero-mobile-menu {
+      display: none;
+    }
+  }
+
+  /* Mobile ≤ 768px */
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 100svh;
+      aspect-ratio: 9 / 16;
+      background-image: url('/HERO%20M%C3%93VIL.png');
+      background-position: center top;
+    }
+
+    .hero-figure {
+      left: 50%;
+      top: 13%;
+      height: 38%;
+    }
+
+    .hero-nav--desktop-tablet {
+      display: none;
+    }
+
+    .hero-menu-button {
+      position: absolute;
+      top: 42px;
+      right: 42px;
+      z-index: 6;
+      background: transparent;
+      border: none;
+      padding: 0;
+      font-size: 14px;
+      letter-spacing: 1.2px;
+      cursor: pointer;
+    }
+
+    .hero-mobile-menu {
+      position: absolute;
+      top: 76px;
+      right: 34px;
+      z-index: 7;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+      padding: 14px 16px;
+      background: rgba(241, 235, 221, 0.82);
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(25, 25, 25, 0.12);
+    }
+
+    .hero-mobile-menu[hidden] {
+      display: none;
+    }
+
+    .hero-mobile-menu a {
+      font-size: 13px;
+      letter-spacing: 1.1px;
+    }
   }
 
   /* ===================================================================
