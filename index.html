@@ -8,9 +8,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/WEB-ARTISTA-ENRIKE-SEGARRA-GOOD-/assets/index-gF1k55rU.js"></script>
-  <link rel="stylesheet" crossorigin href="/WEB-ARTISTA-ENRIKE-SEGARRA-GOOD-/assets/index-DVPyu4M6.css">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Condensed:wght@700&family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/WEB-ARTISTA-ENRIKE-SEGARRA-GOOD-/assets/index-BeWv4cCB.js"></script>
+  <link rel="stylesheet" crossorigin href="/WEB-ARTISTA-ENRIKE-SEGARRA-GOOD-/assets/index-BJpT0xFF.css">
 </head>
 <body>
 
@@ -26,51 +26,40 @@
   </defs>
 </svg>
 
-<!-- ============== NAV ============== -->
-<nav class="top">
-  <ul>
-    <li><a href="#cine">Cine</a></li>
-    <li><a href="#actor">Actor</a></li>
-    <li><a href="#fotografia">Foto</a></li>
-    <li><a href="#escritor">Escritor</a></li>
-    <li><a href="#musica">Música</a></li>
-    <li><a href="#ai">A.I.</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
 <!-- ============== HERO ============== -->
 <section class="hero" id="hero">
 
-  <!-- Canvas Bauhaus v2: papel elegante + formas planas, una sola capa.
-       El rasgado inferior ya viene horneado dentro del propio canvas. -->
-  <div class="tx-layer hero-bg-canvas" aria-hidden="true"></div>
+  <nav class="hero-nav hero-nav--desktop-tablet" aria-label="Main navigation">
+    <a href="#cine">CINE</a>
+    <a href="#actor">ACTOR</a>
+    <a href="#fotografia">FOTO</a>
+    <a href="#escritor">ESCRITOR</a>
+    <a href="#musica">MÚSICA</a>
+    <a href="#ai">A.I.</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
 
-  <div class="hero-stage">
-    <div class="vitruvio">
-      <!-- Canon de Vitruvio: círculo + cuadrado SVG que se dibujan en la entrada -->
-      <svg class="vitruvio-canon" viewBox="0 0 100 100" aria-hidden="true">
-        <circle class="canon-circle" cx="50" cy="50" r="46" fill="none"/>
-        <rect   class="canon-square" x="6" y="6" width="88" height="88" fill="none"/>
-      </svg>
+  <button class="hero-menu-button" type="button" aria-expanded="false" aria-controls="hero-mobile-menu">
+    MENU
+  </button>
 
-      <img class="vitruvio-img" src="/WEB-ARTISTA-ENRIKE-SEGARRA-GOOD-/hero-vitruvio.png" alt="Enrike Segarra como Hombre de Vitruvio contemporáneo: seis brazos sosteniendo cámara de foto, cámara de cine, guion, máscara, guitarra y tablet de IA">
+  <nav id="hero-mobile-menu" class="hero-mobile-menu" aria-label="Main navigation" hidden>
+    <a href="#cine">CINE</a>
+    <a href="#actor">ACTOR</a>
+    <a href="#fotografia">FOTO</a>
+    <a href="#escritor">ESCRITOR</a>
+    <a href="#musica">MÚSICA</a>
+    <a href="#ai">A.I.</a>
+    <a href="#about">ABOUT</a>
+    <a href="#contact">CONTACT</a>
+  </nav>
 
-      <!-- Spotlight overlay: aparece cuando hay hover en una zona -->
-      <div class="vitruvio-spotlight" aria-hidden="true"></div>
-
-      <!-- Zonas clickables sobre la imagen.
-           Cada una lleva al ancla correspondiente. -->
-      <div class="hero-zone zone-foto"     data-target="fotografia" data-label="FOTOGRAFÍA"></div>
-      <div class="hero-zone zone-cine"     data-target="cine"       data-label="CINE"></div>
-      <div class="hero-zone zone-escritor" data-target="escritor"   data-label="ESCRITOR"></div>
-      <div class="hero-zone zone-ai"       data-target="ai"         data-label="A.I"></div>
-      <div class="hero-zone zone-actor"    data-target="actor"      data-label="ACTOR"></div>
-      <div class="hero-zone zone-musica"   data-target="musica"     data-label="MÚSICA"></div>
-    </div>
-  </div>
-
+  <img
+    class="hero-figure"
+    src="/WEB-ARTISTA-ENRIKE-SEGARRA-GOOD-/hero-vitruvio.png"
+    alt="Enrike Segarra Vitruvian collage figure"
+  />
 
 </section>
 
