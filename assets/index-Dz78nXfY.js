@@ -208,4 +208,4 @@
         <div class="archive-grid" id="archive-grid">${c}</div>
       </section>
     `;m({html:o,mode:"project"}),setTimeout(()=>{const a=document.querySelectorAll(".archive-filter"),i=document.querySelectorAll(".archive-card");a.forEach(n=>{n.addEventListener("click",()=>{const l=n.dataset.cat,u=e[l];a.forEach(r=>r.classList.remove("active")),n.classList.add("active"),i.forEach(r=>{const f=r.dataset.archiveSlug,q=v[f];q&&(u.test(q)?r.classList.remove("is-hidden"):r.classList.add("is-hidden"))})})}),i.forEach(n=>{n.addEventListener("click",()=>{const l=n.dataset.archiveSlug;l&&I(l)})})},50)}const A=document.getElementById("open-archive");A&&A.addEventListener("click",C);
-//# sourceMappingURL=index-JtU9jJOW.js.map
+//# sourceMappingURL=index-Dz78nXfY.js.map
