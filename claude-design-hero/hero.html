@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hero — Enrike Segarra (aislado para Claude Design)</title>
+
+  <!-- Tipografías reales del proyecto -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="hero.css">
+</head>
+<body>
+
+<!-- ============== SVG DEFS — filtros reusables ============== -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <defs>
+    <filter id="torn-edge" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="3" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="9"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ============== NAV (incluida sólo como contexto visual del hero — la nav real
+                   se mantiene tal cual está, no es objeto del rediseño) ============== -->
+<nav class="top">
+  <div class="logo">E.S.</div>
+  <ul>
+    <li><a href="#cine">Cine</a></li>
+    <li><a href="#actor">Actor</a></li>
+    <li><a href="#fotografia">Foto</a></li>
+    <li><a href="#escritor">Escritor</a></li>
+    <li><a href="#musica">Música</a></li>
+    <li><a href="#ai">A.I</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ============== HERO ============== -->
+<section class="hero" id="hero">
+
+  <!-- Capa de fondo: canvas Bauhaus (papel + formas planas integradas).
+       Asset 16:9, ya horneado con rasgado inferior. -->
+  <div class="tx-layer hero-bg-canvas" aria-hidden="true"></div>
+
+  <div class="hero-stage">
+    <div class="vitruvio">
+      <!-- Canon de Vitruvio: círculo + cuadrado SVG que se dibujan en la entrada -->
+      <svg class="vitruvio-canon" viewBox="0 0 100 100" aria-hidden="true">
+        <circle class="canon-circle" cx="50" cy="50" r="46" fill="none"/>
+        <rect   class="canon-square" x="6" y="6" width="88" height="88" fill="none"/>
+      </svg>
+
+      <img class="vitruvio-img" src="assets/hero-vitruvio.png" alt="Enrike Segarra como Hombre de Vitruvio contemporáneo: seis brazos sosteniendo cámara de foto, cámara de cine, guion, máscara, guitarra y tablet de IA">
+
+      <!-- Spotlight overlay: aparece cuando hay hover en una zona -->
+      <div class="vitruvio-spotlight" aria-hidden="true"></div>
+
+      <!-- Zonas clickables sobre la imagen — 6 oficios.
+           Cada una lleva al ancla de su sección. -->
+      <div class="hero-zone zone-foto"     data-target="fotografia" data-label="FOTOGRAFÍA"></div>
+      <div class="hero-zone zone-cine"     data-target="cine"       data-label="CINE"></div>
+      <div class="hero-zone zone-escritor" data-target="escritor"   data-label="ESCRITOR"></div>
+      <div class="hero-zone zone-ai"       data-target="ai"         data-label="A.I"></div>
+      <div class="hero-zone zone-actor"    data-target="actor"      data-label="ACTOR"></div>
+      <div class="hero-zone zone-musica"   data-target="musica"     data-label="MÚSICA"></div>
+    </div>
+  </div>
+
+  <div class="hero-footer">
+    <h1 class="hero-name">Enrike<br><span class="accent">Segarra</span></h1>
+    <div class="hero-meta-group">
+      <p class="hero-meta">
+        Cine, foto, escritura,<br>
+        interpretación, música, IA.<br>
+        Una sola mirada<br>en distintos lenguajes.
+      </p>
+      <div class="hero-barcode" aria-hidden="true"></div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

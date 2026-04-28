@@ -192,19 +192,19 @@
 
     .hero-nav--desktop-tablet {
       position: absolute;
-      top: 34px;
-      right: 120px;
+      top: 28px;
+      right: 200px;
       display: flex;
       align-items: center;
-      gap: 26px;
+      gap: 28px;
       z-index: 6;
       font-family: "Bebas Neue", "Oswald", "Archivo Condensed", "Arial Narrow", sans-serif;
-      font-size: 18px;
+      font-size: 26px;
       font-weight: 700;
-      letter-spacing: 1.4px;
+      letter-spacing: 2px;
       line-height: 1;
       text-transform: uppercase;
-      color: #111111;
+      color: var(--red);
       white-space: nowrap;
     }
 
@@ -227,21 +227,26 @@
     }
 
     .hero-figure {
-      left: 54%;
+      left: 50%;
       top: 8.5%;
       height: 54%;
     }
 
     .hero-nav--desktop-tablet {
       position: absolute;
-      top: 38px;
-      right: 58px;
+      top: 34px;
+      right: 44px;
       display: flex;
       align-items: center;
       gap: 18px;
-      z-index: 5;
-      font-size: 12px;
-      letter-spacing: 1px;
+      z-index: 6;
+      font-family: "Bebas Neue", "Oswald", "Archivo Condensed", "Arial Narrow", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      line-height: 1;
+      text-transform: uppercase;
+      color: #111111;
       white-space: nowrap;
     }
 
@@ -253,17 +258,24 @@
 
   /* Mobile ≤ 768px */
   @media (max-width: 768px) {
+    /* html is the actual scroll container in mobile Safari — body overflow-x alone
+       does not prevent horizontal scrolling on iOS. clip avoids creating a scroll context. */
+    html {
+      overflow-x: clip;
+    }
+
     .hero {
       min-height: 100svh;
       aspect-ratio: 9 / 16;
       background-image: url('/HERO%20M%C3%93VIL.png');
       background-position: center top;
+      overflow: hidden;
     }
 
     .hero-figure {
       left: 50%;
       top: 13%;
-      height: 38%;
+      height: 37%;
     }
 
     .hero-nav--desktop-tablet {

@@ -1,0 +1,404 @@
+/* ===================================================================
+   HERO — CSS aislado para Claude Design
+   Extraído de: src/styles/style.css (vars + bloque hero) + src/styles/textures.css
+   Mantiene fielmente el comportamiento actual del proyecto.
+   =================================================================== */
+
+/* --- RESET mínimo --- */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ===================================================================
+   VARIABLES — Paleta cerrada v3
+   IMPORTANTE: la paleta es cerrada. No introducir colores nuevos.
+   =================================================================== */
+:root {
+  /* === Estructura === */
+  --paper:        #F1EBDD;   /* Crudo / papel envejecido */
+  --paper-warm:   #E8DFCC;   /* Papel un punto más cálido */
+  --paper-edge:   #DDD3BD;   /* Borde de página, sombras de papel */
+  --ink:          #0E0E0E;   /* Negro profundo */
+  --ink-soft:     #1A1815;   /* Texto cuerpo */
+
+  /* === Acentos por disciplina === */
+  --red:          #C8311E;   /* Cine + corbata */
+  --red-deep:     #9C2515;
+  --blue:         #1F2D87;   /* Foto */
+  --blue-deep:    #141E5C;
+  --mustard:      #D4A82C;   /* Actor + A.I (compartido — diferenciados por icono) */
+  --mustard-deep: #A47F1F;
+  --green:        #1B4332;   /* Música — verde botella */
+  --green-deep:   #0F2A1F;
+
+  /* === Color rector activo === */
+  --section-accent: var(--red);
+  --section-accent-deep: var(--red-deep);
+
+  --line: rgba(14, 14, 14, 0.12);
+
+  /* === Tipografías === */
+  --font-display:   'Bebas Neue', sans-serif;
+  --font-editorial: 'Fraunces', serif;
+  --font-body:      'EB Garamond', serif;
+
+  /* === Layout === */
+  --container: 1280px;
+  --gut: clamp(24px, 5vw, 80px);
+  --section-y: clamp(120px, 18vh, 220px);
+
+  /* === Texturas === */
+  --tx-hero-canvas: url('assets/hero-bauhaus-canvas.webp');
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-image:
+    radial-gradient(circle at 18% 28%, rgba(200, 49, 30, 0.022) 0%, transparent 45%),
+    radial-gradient(circle at 82% 68%, rgba(31, 45, 135, 0.018) 0%, transparent 45%);
+}
+
+/* Grano de papel global (fino, multiply) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.35;
+  mix-blend-mode: multiply;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.92' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0 0.05 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+img { max-width: 100%; display: block; }
+::selection { background: var(--red); color: var(--paper); }
+
+/* ===================================================================
+   NAVIGATION (sólo para contexto visual del hero — no objeto del rediseño)
+   =================================================================== */
+nav.top {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 22px var(--gut);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  mix-blend-mode: difference;
+  color: var(--paper);
+}
+nav.top .logo {
+  font-family: var(--font-display);
+  letter-spacing: 0.18em;
+  font-size: 22px;
+}
+nav.top ul {
+  list-style: none;
+  display: flex;
+  gap: 38px;
+  font-family: var(--font-display);
+  letter-spacing: 0.22em;
+  font-size: 15px;
+}
+nav.top a {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity .25s;
+}
+nav.top a:hover { opacity: 0.55; }
+
+@media (max-width: 860px) {
+  nav.top ul { display: none; }
+}
+
+/* ===================================================================
+   TEXTURE LAYER — base
+   =================================================================== */
+.tx-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ===================================================================
+   HERO — IMAGEN VITRUVIO ÚNICA + ZONAS CLICKABLES
+   Filosofía actual: una sola imagen estática (el Vitruvio generado en
+   GPT-Image), centrada, con AIRE generoso. Las zonas clickables son
+   divs absolutos transparentes que en hover dan feedback sutil.
+   =================================================================== */
+.hero {
+  min-height: 100vh;
+  padding: clamp(20px, 2vh, 35px) var(--gut) 0;
+  display: grid;
+  grid-template-areas: "stack";
+  overflow: hidden;
+  position: relative;
+  background-color: var(--paper);
+}
+
+/* Eleva el contenido funcional del hero por encima de la capa de textura */
+.hero .hero-stage,
+.hero .hero-footer {
+  position: relative;
+  z-index: 12;
+}
+
+/* Capa única — canvas Bauhaus (papel cremoso + formas planas integradas).
+   Asset 16:9 (1672x941). Cover para mantener proporciones reales. */
+.hero-bg-canvas {
+  background-image: var(--tx-hero-canvas);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  mix-blend-mode: normal;
+  opacity: 1;
+  z-index: 0;
+}
+
+.hero-stage {
+  grid-area: stack;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  align-self: start;
+  justify-self: center;
+  padding-top: clamp(5px, 1vh, 15px);
+}
+
+.vitruvio {
+  position: relative;
+  width: min(1100px, 77vh, 47vw);
+  aspect-ratio: 1;
+  /* Capa 2 — Respiración continua. */
+  animation: vitruvioBreathe 6s ease-in-out 2s infinite;
+  will-change: transform;
+}
+
+/* Capa 1 — Entrada (sobre la <img> para no chocar con la respiración) */
+.vitruvio-img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 50px rgba(14, 14, 14, 0.18));
+  animation: vitruvioEnter 1.3s cubic-bezier(.25,.46,.45,.94) 0.2s both;
+}
+
+@keyframes vitruvioEnter {
+  from { opacity: 0; transform: scale(0.92) rotate(-1deg); }
+  to   { opacity: 1; transform: scale(1)    rotate(0deg);  }
+}
+
+@keyframes vitruvioBreathe {
+  0%   { transform: translateY(0);    }
+  25%  { transform: translateY(-3px); }
+  50%  { transform: translateY(0);    }
+  75%  { transform: translateY(3px);  }
+  100% { transform: translateY(0);    }
+}
+
+/* Canon de Vitruvio — círculo + cuadrado dibujándose en la entrada */
+.vitruvio-canon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+.vitruvio-canon circle,
+.vitruvio-canon rect {
+  stroke: var(--ink);
+  stroke-width: 0.25;
+  vector-effect: non-scaling-stroke;
+  opacity: 0;
+}
+.vitruvio-canon .canon-circle {
+  stroke-dasharray: 290;
+  stroke-dashoffset: 290;
+  animation:
+    canonDraw 1.2s cubic-bezier(.25,.46,.45,.94) 0.3s forwards,
+    canonAppear 0.4s ease-out 0.3s forwards;
+}
+.vitruvio-canon .canon-square {
+  stroke-dasharray: 352;
+  stroke-dashoffset: 352;
+  animation:
+    canonDraw 1.0s cubic-bezier(.25,.46,.45,.94) 0.5s forwards,
+    canonAppear 0.4s ease-out 0.5s forwards;
+}
+@keyframes canonDraw   { to { stroke-dashoffset: 0; } }
+@keyframes canonAppear { to { opacity: 0.18; } }
+
+/* Spotlight: oscurecimiento sutil del resto del hero al hacer hover en una zona.
+   Lo activamos desde JS añadiendo .is-spotlight al .vitruvio. */
+.vitruvio-spotlight {
+  position: absolute;
+  inset: 0;
+  background: rgba(241, 235, 221, 0.42);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s ease;
+  z-index: 3;
+  mix-blend-mode: lighten;
+}
+.vitruvio.is-spotlight .vitruvio-spotlight { opacity: 1; }
+
+/* Asegura que la zona en hover sigue por encima del overlay */
+.vitruvio.is-spotlight .hero-zone:hover { z-index: 6; }
+
+/* Zonas clickables: divs transparentes posicionados sobre los 6 bloques */
+.hero-zone {
+  position: absolute;
+  z-index: 4;
+  cursor: pointer;
+  transition: transform .4s cubic-bezier(.2,.7,.2,1);
+}
+.hero-zone:hover { transform: scale(1.05); }
+
+/* Label tipo poster Nouvelle Vague: Bebas Neue bermellón sobre papel */
+.hero-zone::after {
+  content: attr(data-label);
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-5px);
+  margin-top: 14px;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.34em;
+  color: var(--red);
+  background: transparent;
+  padding: 4px 0;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .25s cubic-bezier(.25,.46,.45,.94);
+  z-index: 5;
+}
+.hero-zone:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Flash bermellón al hacer click sobre una zona */
+.hero-zone.is-flashing {
+  outline: 2px solid var(--red);
+  transition: outline .15s ease;
+}
+
+/* Coordenadas en porcentaje sobre la imagen 1:1.
+   Ajustadas mirando la composición del Vitruvio entregado. */
+.zone-foto    { top: 4%;  left: 24%; width: 17%; height: 15%; --section-accent: var(--blue); }
+.zone-cine    { top: 4%;  left: 60%; width: 17%; height: 18%; --section-accent: var(--red); }
+.zone-escritor{ top: 24%; left: 5%;  width: 14%; height: 20%; --section-accent: var(--ink); }
+.zone-ai      { top: 26%; left: 76%; width: 15%; height: 17%; --section-accent: var(--mustard); }
+.zone-actor   { top: 49%; left: 11%; width: 14%; height: 17%; --section-accent: var(--mustard); }
+.zone-musica  { top: 51%; left: 66%; width: 20%; height: 24%; --section-accent: var(--green); }
+
+/* Hero footer — anclado abajo-izquierda, comparte cell con .hero-stage */
+.hero-footer {
+  grid-area: stack;
+  align-self: end;
+  justify-self: start;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  gap: clamp(20px, 3.5vw, 56px);
+  flex-wrap: wrap;
+  max-width: var(--container);
+  width: 100%;
+  position: relative;
+  padding-left: clamp(60px, 12vw, 240px);
+  padding-bottom: clamp(15px, 2vh, 25px);
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 170px);
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+.hero-name .accent { color: var(--red); }
+
+.hero-meta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-left: 1.5px solid var(--ink);
+  padding-left: 26px;
+  max-width: 320px;
+}
+
+.hero-meta {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 17px;
+  text-align: left;
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.hero-barcode {
+  width: 72px;
+  height: 22px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--ink) 0,      var(--ink) 2px,
+    transparent 2px,   transparent 5px,
+    var(--ink) 5px,    var(--ink) 8px,
+    transparent 8px,   transparent 10px,
+    var(--ink) 10px,   var(--ink) 11px,
+    transparent 11px,  transparent 14px,
+    var(--ink) 14px,   var(--ink) 17px,
+    transparent 17px,  transparent 19px,
+    var(--ink) 19px,   var(--ink) 22px,
+    transparent 22px,  transparent 26px,
+    var(--ink) 26px,   var(--ink) 28px,
+    transparent 28px,  transparent 32px,
+    var(--ink) 32px,   var(--ink) 35px,
+    transparent 35px,  transparent 37px,
+    var(--ink) 37px,   var(--ink) 39px,
+    transparent 39px,  transparent 43px,
+    var(--ink) 43px,   var(--ink) 47px,
+    transparent 47px,  transparent 50px,
+    var(--ink) 50px,   var(--ink) 52px,
+    transparent 52px,  transparent 56px,
+    var(--ink) 56px,   var(--ink) 59px,
+    transparent 59px,  transparent 62px,
+    var(--ink) 62px,   var(--ink) 65px,
+    transparent 65px,  transparent 68px,
+    var(--ink) 68px,   var(--ink) 70px,
+    transparent 70px,  transparent 72px
+  );
+}
+
+@media (max-width: 720px) {
+  .hero-meta-group { border-left: none; padding-left: 0; max-width: none; }
+  .hero-meta { text-align: left; }
+  /* En móvil, ahorro batería: respiración off */
+  .vitruvio { animation: none; }
+}
+
+/* Accesibilidad: respeta prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .vitruvio,
+  .vitruvio-img,
+  .vitruvio-canon circle,
+  .vitruvio-canon rect {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+  .vitruvio-canon .canon-circle { stroke-dashoffset: 0; opacity: 0.18; }
+  .vitruvio-canon .canon-square { stroke-dashoffset: 0; opacity: 0.18; }
+}
