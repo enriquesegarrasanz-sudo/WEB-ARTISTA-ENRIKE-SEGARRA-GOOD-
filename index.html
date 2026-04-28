@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Enrike Segarra — Filmmaker · Photographer · Writer · Actor · Musician · A.I</title>
+  <meta name="description" content="Una sola mirada en distintos lenguajes. Cine, fotografía, escritura, interpretación, música y construcción con IA.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/WEB-ARTISTA-ENRIKE-SEGARRA-GOOD-/assets/index-C1Vjju4j.js"></script>
+  <link rel="stylesheet" crossorigin href="/WEB-ARTISTA-ENRIKE-SEGARRA-GOOD-/assets/index-BmATW-p4.css">
+</head>
+<body>
+
+
+<!-- ============== SVG DEFS — filtros reusables ============== -->
+<svg width="0" height="0" aria-hidden="true" style="position:absolute">
+  <defs>
+    <!-- Borde rasgado: feTurbulence + feDisplacementMap -->
+    <filter id="torn-edge" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="3" seed="7" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="9"/>
+    </filter>
+  </defs>
+</svg>
+
+<!-- ============== NAV ============== -->
+<nav class="top">
+  <ul>
+    <li><a href="#cine">Cine</a></li>
+    <li><a href="#actor">Actor</a></li>
+    <li><a href="#fotografia">Foto</a></li>
+    <li><a href="#escritor">Escritor</a></li>
+    <li><a href="#musica">Música</a></li>
+    <li><a href="#ai">A.I.</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ============== HERO ============== -->
+<section class="hero" id="hero">
+
+  <!-- Canvas Bauhaus v2: papel elegante + formas planas, una sola capa.
+       El rasgado inferior ya viene horneado dentro del propio canvas. -->
+  <div class="tx-layer hero-bg-canvas" aria-hidden="true"></div>
+
+  <div class="hero-stage">
+    <div class="vitruvio">
+      <!-- Canon de Vitruvio: círculo + cuadrado SVG que se dibujan en la entrada -->
+      <svg class="vitruvio-canon" viewBox="0 0 100 100" aria-hidden="true">
+        <circle class="canon-circle" cx="50" cy="50" r="46" fill="none"/>
+        <rect   class="canon-square" x="6" y="6" width="88" height="88" fill="none"/>
+      </svg>
+
+      <img class="vitruvio-img" src="/WEB-ARTISTA-ENRIKE-SEGARRA-GOOD-/hero-vitruvio.png" alt="Enrike Segarra como Hombre de Vitruvio contemporáneo: seis brazos sosteniendo cámara de foto, cámara de cine, guion, máscara, guitarra y tablet de IA">
+
+      <!-- Spotlight overlay: aparece cuando hay hover en una zona -->
+      <div class="vitruvio-spotlight" aria-hidden="true"></div>
+
+      <!-- Zonas clickables sobre la imagen.
+           Cada una lleva al ancla correspondiente. -->
+      <div class="hero-zone zone-foto"     data-target="fotografia" data-label="FOTOGRAFÍA"></div>
+      <div class="hero-zone zone-cine"     data-target="cine"       data-label="CINE"></div>
+      <div class="hero-zone zone-escritor" data-target="escritor"   data-label="ESCRITOR"></div>
+      <div class="hero-zone zone-ai"       data-target="ai"         data-label="A.I"></div>
+      <div class="hero-zone zone-actor"    data-target="actor"      data-label="ACTOR"></div>
+      <div class="hero-zone zone-musica"   data-target="musica"     data-label="MÚSICA"></div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- ============== MARQUEE ============== -->
+<div class="marquee">
+  <div class="marquee-track">
+    <span>FILMMAKER</span><span class="star">✦</span>
+    <span>PHOTOGRAPHER</span><span class="star b">✦</span>
+    <span>WRITER</span><span class="star">✦</span>
+    <span>ACTOR</span><span class="star m">✦</span>
+    <span>MUSICIAN</span><span class="star g">✦</span>
+    <span>BUILDER</span><span class="star m">✦</span>
+    <span>FILMMAKER</span><span class="star">✦</span>
+    <span>PHOTOGRAPHER</span><span class="star b">✦</span>
+    <span>WRITER</span><span class="star">✦</span>
+    <span>ACTOR</span><span class="star m">✦</span>
+    <span>MUSICIAN</span><span class="star g">✦</span>
+    <span>BUILDER</span><span class="star m">✦</span>
+  </div>
+</div>
+
+<!-- ============== MANIFIESTO ============== -->
+<section class="manifiesto" id="manifiesto">
+  <div class="manifiesto-inner">
+    <h2 class="manifiesto-statement reveal">
+      No soy <em class="acc-red">muchas cosas</em>. Soy una sola persona<br>
+      que se expresa en distintos <em class="acc-blue">lenguajes</em>.
+    </h2>
+    <p class="manifiesto-coda reveal">
+      El <em class="acc-green">renacimiento</em> lo entendió.
+      Esta era lo necesita de nuevo.
+    </p>
+  </div>
+</section>
+
+<!-- ============== 01 / CINE ============== -->
+<section class="cine" id="cine">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow">01 / Filmmaking</div>
+        <h2 class="section-title">Reel<br><em>2026</em></h2>
+        <button class="all-projects-trigger" id="open-archive">
+          Ver todos los proyectos
+          <span class="arrow">↗</span>
+        </button>
+      </div>
+      <p class="meta-tag">
+        Selección curada de doce piezas dirigidas entre 2020 y 2025 — cortos, videoclips, comerciales y trabajo experimental.
+      </p>
+    </div>
+
+    <div class="reel-stage reveal" data-lightbox="reel">
+      <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1600&q=80" alt="Reel 2026">
+      <div class="reel-overlay">
+        <div class="reel-play">▶</div>
+      </div>
+      <div class="reel-info">
+        <span>SHOWREEL — 2026</span>
+        <span class="duration">02:14</span>
+      </div>
+    </div>
+
+    <div class="projects-carousel">
+      <div class="eyebrow" style="margin-bottom: 30px;">Selected Projects</div>
+      <div class="projects-track">
+        <!-- SET A -->
+        <div class="project-card" data-lightbox="project" data-project="el-ultimo-jardin">
+          <div class="project-thumb">
+            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?w=900&q=80" alt="">
+          </div>
+          <div class="project-info">
+            <div>
+              <div class="project-title">El último jardín</div>
+              <div class="project-meta">CORTOMETRAJE · DIRECCIÓN</div>
+            </div>
+            <span class="project-year">2025</span>
+          </div>
+        </div>
+
+        <div class="project-card" data-lightbox="project" data-project="aire-habitacion-304">
+          <div class="project-thumb">
+            <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=900&q=80" alt="">
+          </div>
+          <div class="project-info">
+            <div>
+              <div class="project-title">Aire / Habitación 304</div>
+              <div class="project-meta">VIDEOCLIP · DIRECCIÓN</div>
+            </div>
+            <span class="project-year">2024</span>
+          </div>
+        </div>
+
+        <div class="project-card" data-lightbox="project" data-project="loewe-heritage">
+          <div class="project-thumb">
+            <img src="https://images.unsplash.com/photo-1489599735734-79b4af4a4015?w=900&q=80" alt="">
+          </div>
+          <div class="project-info">
+            <div>
+              <div class="project-title">Loewe — Heritage</div>
+              <div class="project-meta">SPOT · DIRECCIÓN</div>
+            </div>
+            <span class="project-year">2024</span>
+          </div>
+        </div>
+
+        <div class="project-card" data-lightbox="project" data-project="sirocco">
+          <div class="project-thumb">
+            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=900&q=80" alt="">
+          </div>
+          <div class="project-info">
+            <div>
+              <div class="project-title">Sirocco</div>
+              <div class="project-meta">DOCUMENTAL · DIRECCIÓN</div>
+            </div>
+            <span class="project-year">2023</span>
+          </div>
+        </div>
+
+        <div class="project-card" data-lightbox="project" data-project="las-cosas-pequenas">
+          <div class="project-thumb">
+            <img src="https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=900&q=80" alt="">
+          </div>
+          <div class="project-info">
+            <div>
+              <div class="project-title">Las cosas pequeñas</div>
+              <div class="project-meta">CORTOMETRAJE · DIRECCIÓN</div>
+            </div>
+            <span class="project-year">2023</span>
+          </div>
+        </div>
+
+        <div class="project-card" data-lightbox="project" data-project="nocturno">
+          <div class="project-thumb">
+            <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?w=900&q=80" alt="">
+          </div>
+          <div class="project-info">
+            <div>
+              <div class="project-title">Nocturno</div>
+              <div class="project-meta">VIDEOCLIP · DIRECCIÓN</div>
+            </div>
+            <span class="project-year">2022</span>
+          </div>
+        </div>
+
+        <!-- SET B (duplicado para loop infinito) -->
+        <div class="project-card" data-lightbox="project" aria-hidden="true" data-project="el-ultimo-jardin">
+          <div class="project-thumb">
+            <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?w=900&q=80" alt="">
+          </div>
+          <div class="project-info">
+            <div>
+              <div class="project-title">El último jardín</div>
+              <div class="project-meta">CORTOMETRAJE · DIRECCIÓN</div>
+            </div>
+            <span class="project-year">2025</span>
+          </div>
+        </div>
+
+        <div class="project-card" data-lightbox="project" aria-hidden="true" data-project="aire-habitacion-304">
+          <div class="project-thumb">
+            <img src="https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?w=900&q=80" alt="">
+          </div>
+          <div class="project-info">
+            <div>
+              <div class="project-title">Aire / Habitación 304</div>
+              <div class="project-meta">VIDEOCLIP · DIRECCIÓN</div>
+            </div>
+            <span class="project-year">2024</span>
+          </div>
+        </div>
+
+        <div class="project-card" data-lightbox="project" aria-hidden="true" data-project="loewe-heritage">
+          <div class="project-thumb">
+            <img src="https://images.unsplash.com/photo-1489599735734-79b4af4a4015?w=900&q=80" alt="">
+          </div>
+          <div class="project-info">
+            <div>
+              <div class="project-title">Loewe — Heritage</div>
+              <div class="project-meta">SPOT · DIRECCIÓN</div>
+            </div>
+            <span class="project-year">2024</span>
+          </div>
+        </div>
+
+        <div class="project-card" data-lightbox="project" aria-hidden="true" data-project="sirocco">
+          <div class="project-thumb">
+            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=900&q=80" alt="">
+          </div>
+          <div class="project-info">
+            <div>
+              <div class="project-title">Sirocco</div>
+              <div class="project-meta">DOCUMENTAL · DIRECCIÓN</div>
+            </div>
+            <span class="project-year">2023</span>
+          </div>
+        </div>
+
+        <div class="project-card" data-lightbox="project" aria-hidden="true" data-project="las-cosas-pequenas">
+          <div class="project-thumb">
+            <img src="https://images.unsplash.com/photo-1574267432553-4b4628081c31?w=900&q=80" alt="">
+          </div>
+          <div class="project-info">
+            <div>
+              <div class="project-title">Las cosas pequeñas</div>
+              <div class="project-meta">CORTOMETRAJE · DIRECCIÓN</div>
+            </div>
+            <span class="project-year">2023</span>
+          </div>
+        </div>
+
+        <div class="project-card" data-lightbox="project" aria-hidden="true" data-project="nocturno">
+          <div class="project-thumb">
+            <img src="https://images.unsplash.com/photo-1453928582365-b6ad33cbcf64?w=900&q=80" alt="">
+          </div>
+          <div class="project-info">
+            <div>
+              <div class="project-title">Nocturno</div>
+              <div class="project-meta">VIDEOCLIP · DIRECCIÓN</div>
+            </div>
+            <span class="project-year">2022</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============== 02 / ACTOR ============== -->
+<section class="actor" id="actor">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow">02 / Acting</div>
+        <h2 class="section-title">En cámara,<br><em>en escena</em></h2>
+      </div>
+      <p class="meta-tag">
+        Actor para cine, publicidad y teatro. Formación en Estudio Corazza (Madrid) y Mar Navarro. Castellano, inglés, catalán.
+      </p>
+    </div>
+
+    <!-- Showreel destacado, formato cine, su propio espacio -->
+    <div class="actor-showreel reveal" data-lightbox="reel">
+      <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=1600&q=80" alt="Showreel del actor">
+      <div class="reel-overlay">
+        <div class="reel-play">▶</div>
+      </div>
+      <div class="reel-info">
+        <span><span class="live">●</span> SHOWREEL — 2025</span>
+        <span class="duration">01:48</span>
+      </div>
+    </div>
+
+    <div class="actor-info-grid">
+      <div class="actor-info reveal">
+        <h3>Trabajo como intérprete<br>desde <em>2018</em>.</h3>
+        <p>Cine independiente, publicidad nacional, teatro contemporáneo. La interpretación entró tarde y se quedó: la misma curiosidad por la mirada humana que sostiene la cámara, vista desde el otro lado.</p>
+        <p>Formación en Estudio Corazza (Madrid) y Mar Navarro. Castellano, inglés, catalán.</p>
+      </div>
+
+      <div class="reveal">
+        <div class="skills-strip">
+          <div class="skills-strip-label">SKILLS / RANGO</div>
+          <ul class="skills-list">
+            <li>Drama contemporáneo</li>
+            <li>Comedia naturalista</li>
+            <li>Improvisación</li>
+            <li>Cámara fija</li>
+            <li>Voz en off</li>
+            <li>Equitación básica</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="headshots reveal">
+      <div class="headshot" data-lightbox="photo">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="">
+        <div class="headshot-label">01 / HEADSHOT</div>
+      </div>
+      <div class="headshot" data-lightbox="photo">
+        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=600&q=80" alt="">
+        <div class="headshot-label">02 / IN CHARACTER</div>
+      </div>
+      <div class="headshot" data-lightbox="photo">
+        <img src="https://images.unsplash.com/photo-1492447166138-50c3889fccb1?w=600&q=80" alt="">
+        <div class="headshot-label">03 / STAGE</div>
+      </div>
+      <div class="headshot" data-lightbox="photo">
+        <img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?w=600&q=80" alt="">
+        <div class="headshot-label">04 / SET</div>
+      </div>
+    </div>
+
+    <!-- v6 — Vídeos del actor: piezas completas más allá del showreel -->
+    <div class="actor-videos reveal">
+      <div class="actor-videos-header">
+        <h3>Piezas completas.</h3>
+        <p>Más allá del showreel — escenas, capítulos y trabajos íntegros disponibles para casting o consulta.</p>
+      </div>
+      <div class="actor-videos-grid">
+        <div class="actor-video-card" data-lightbox="actor-video" data-vimeo="">
+          <div class="actor-video-thumb">
+            <img src="https://images.unsplash.com/photo-1509909756405-be0199881695?w=900&q=80" alt="">
+          </div>
+          <div class="actor-video-title">Escena — <em>Las cosas pequeñas</em></div>
+          <div class="actor-video-meta">CORTO · 2023 · 04:12</div>
+        </div>
+        <div class="actor-video-card" data-lightbox="actor-video" data-vimeo="">
+          <div class="actor-video-thumb">
+            <img src="https://images.unsplash.com/photo-1485178575877-1a13bf489dfe?w=900&q=80" alt="">
+          </div>
+          <div class="actor-video-title">Spot — <em>Mahou</em></div>
+          <div class="actor-video-meta">PUBLICIDAD · 2024 · 00:60</div>
+        </div>
+        <div class="actor-video-card" data-lightbox="actor-video" data-vimeo="">
+          <div class="actor-video-thumb">
+            <img src="https://images.unsplash.com/photo-1493676304819-0d7a8d026dcf?w=900&q=80" alt="">
+          </div>
+          <div class="actor-video-title">Monólogo — <em>Estudio Corazza</em></div>
+          <div class="actor-video-meta">TEATRO · 2022 · 02:48</div>
+        </div>
+        <div class="actor-video-card" data-lightbox="actor-video" data-vimeo="">
+          <div class="actor-video-thumb">
+            <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=900&q=80" alt="">
+          </div>
+          <div class="actor-video-title">Self-tape — <em>Drama contemporáneo</em></div>
+          <div class="actor-video-meta">CASTING · 2025 · 03:21</div>
+        </div>
+        <div class="actor-video-card" data-lightbox="actor-video" data-vimeo="">
+          <div class="actor-video-thumb">
+            <img src="https://images.unsplash.com/photo-1516280440614-37939bbacd81?w=900&q=80" alt="">
+          </div>
+          <div class="actor-video-title">Improvisación — <em>Mar Navarro</em></div>
+          <div class="actor-video-meta">EJERCICIO · 2024 · 05:14</div>
+        </div>
+        <div class="actor-video-card" data-lightbox="actor-video" data-vimeo="">
+          <div class="actor-video-thumb">
+            <img src="https://images.unsplash.com/photo-1500336624523-d727130c3328?w=900&q=80" alt="">
+          </div>
+          <div class="actor-video-title">Escena — <em>El último jardín</em></div>
+          <div class="actor-video-meta">CORTO · 2025 · 02:30</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============== 03 / FOTOGRAFÍA ============== -->
+<section class="fotografia" id="fotografia">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow">03 / Photography</div>
+        <h2 class="section-title">Vol.<br><em>archivo</em></h2>
+      </div>
+      <p class="meta-tag">
+        Retrato, moda y trabajo de calle. 35mm, medio formato y digital. Cinco series, un cuerpo creciente.
+      </p>
+    </div>
+
+    <!-- Filtros provisionales — categorías que tú reasignas después -->
+    <div class="photo-filters" id="photo-filters">
+      <button class="photo-filter active" data-cat="todas">Todas <span class="count"></span></button>
+      <button class="photo-filter" data-cat="retrato">Retrato <span class="count"></span></button>
+      <button class="photo-filter" data-cat="moda">Moda <span class="count"></span></button>
+      <button class="photo-filter" data-cat="documental">Documental <span class="count"></span></button>
+      <button class="photo-filter" data-cat="paisaje">Paisaje <span class="count"></span></button>
+      <button class="photo-filter" data-cat="rodaje">Rodaje <span class="count"></span></button>
+    </div>
+
+    <!-- Grid editorial — fotos diversas, algunas rompen la retícula -->
+    <div class="photo-grid reveal">
+      <div class="photo-item tall" data-lightbox="photo" data-cat="retrato">
+        <img src="https://images.unsplash.com/photo-1492447166138-50c3889fccb1?w=900&q=80" alt="">
+      </div>
+      <div class="photo-item" data-lightbox="photo" data-cat="paisaje">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=900&q=80" alt="">
+      </div>
+      <div class="photo-item" data-lightbox="photo" data-cat="retrato">
+        <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=900&q=80" alt="">
+      </div>
+      <div class="photo-item" data-lightbox="photo" data-cat="retrato">
+        <img src="https://images.unsplash.com/photo-1488161628813-67a86dcc92d8?w=900&q=80" alt="">
+      </div>
+
+      <div class="photo-item" data-lightbox="photo" data-cat="moda">
+        <img src="https://images.unsplash.com/photo-1500336624523-d727130c3328?w=900&q=80" alt="">
+      </div>
+      <div class="photo-item wide" data-lightbox="photo" data-cat="paisaje">
+        <img src="https://images.unsplash.com/photo-1473662712437-7d3f8b6cf7b3?w=1400&q=80" alt="">
+      </div>
+      <div class="photo-item" data-lightbox="photo" data-cat="retrato">
+        <img src="https://images.unsplash.com/photo-1509909756405-be0199881695?w=900&q=80" alt="">
+      </div>
+
+      <div class="photo-item" data-lightbox="photo" data-cat="documental">
+        <img src="https://images.unsplash.com/photo-1516975698824-571e2adfdfb6?w=900&q=80" alt="">
+      </div>
+      <div class="photo-item" data-lightbox="photo" data-cat="retrato">
+        <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=900&q=80" alt="">
+      </div>
+      <div class="photo-item tall" data-lightbox="photo" data-cat="paisaje">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=900&q=80" alt="">
+      </div>
+      <div class="photo-item" data-lightbox="photo" data-cat="retrato">
+        <img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?w=900&q=80" alt="">
+      </div>
+
+      <div class="photo-item" data-lightbox="photo" data-cat="documental">
+        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=900&q=80" alt="">
+      </div>
+      <div class="photo-item square" data-lightbox="photo" data-cat="retrato">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=900&q=80" alt="">
+      </div>
+      <div class="photo-item" data-lightbox="photo" data-cat="rodaje">
+        <img src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=900&q=80" alt="">
+      </div>
+      <div class="photo-item" data-lightbox="photo" data-cat="retrato">
+        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=900&q=80" alt="">
+      </div>
+
+      <div class="photo-item wide" data-lightbox="photo" data-cat="paisaje">
+        <img src="https://images.unsplash.com/photo-1471478331149-c72f17e33c73?w=1400&q=80" alt="">
+      </div>
+      <div class="photo-item" data-lightbox="photo" data-cat="rodaje">
+        <img src="https://images.unsplash.com/photo-1518929458119-e5bf444c30f4?w=900&q=80" alt="">
+      </div>
+      <div class="photo-item" data-lightbox="photo" data-cat="moda">
+        <img src="https://images.unsplash.com/photo-1521119989659-a83eee488004?w=900&q=80" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============== 04 / ESCRITOR ============== -->
+<section class="escritor" id="escritor">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow">04 / Writing</div>
+        <h2 class="section-title">El guion<br><em>antes del rodaje</em></h2>
+      </div>
+      <p class="meta-tag">
+        Antes de la cámara, antes de los actores, antes de la luz — el papel. Guiones de cine, ficción breve y notas para proyectos en desarrollo.
+      </p>
+    </div>
+
+    <div class="writer-grid">
+      <div class="script-page reveal" data-lightbox="script">
+        <div class="script-slug">INT. CAFÉ DE PARÍS — DAY</div>
+        <p class="script-action">
+          Luz de mediodía entrando por las cristaleras. ENRIKE, treinta y pocos, observa la calle desde una mesa al fondo. Una libreta abierta. Café frío.
+        </p>
+        <p class="script-action">
+          Una MUJER se sienta enfrente sin pedir permiso. Le devuelve la mirada.
+        </p>
+        <div class="script-character">MUJER</div>
+        <div class="script-paren">(en voz baja)</div>
+        <div class="script-dialogue">¿Escribes sobre alguien en concreto?</div>
+        <div class="script-character">ENRIKE</div>
+        <div class="script-dialogue">Todavía no lo sé.</div>
+        <p class="script-action">
+          Ella sonríe. Él anota algo. La página se llena despacio.
+        </p>
+      </div>
+
+      <div class="writer-text reveal">
+        <h3>El primer oficio. <em>El que sostiene los demás.</em></h3>
+        <p>Antes de dirigir aprendí a escribir. Antes de fotografiar aprendí a leer cómo se construye una escena. Todo lo demás — la cámara, el actor, la música — son traducciones de algo que primero pasó por la página.</p>
+        <p>Trabajo guion de ficción larga, corto, y algunas piezas breves que nunca llegan a rodarse y se quedan como literatura.</p>
+
+        <ul class="writer-credits">
+          <li data-lightbox="script-full" data-script="el-ultimo-jardin"><span class="yr">2025</span><span>El último jardín</span><span class="role">GUION + DIRECCIÓN</span></li>
+          <li data-lightbox="script-full" data-script="habitaciones-fondo"><span class="yr">2024</span><span>Las habitaciones del fondo</span><span class="role">GUION</span></li>
+          <li data-lightbox="script-full" data-script="sirocco"><span class="yr">2023</span><span>Sirocco</span><span class="role">GUION + DIRECCIÓN</span></li>
+          <li data-lightbox="script-full" data-script="agosto"><span class="yr">2022</span><span>Lo que no dijimos en agosto</span><span class="role">RELATO</span></li>
+          <li data-lightbox="script-full" data-script="cosas-pequenas"><span class="yr">2021</span><span>Las cosas pequeñas</span><span class="role">GUION + DIRECCIÓN</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============== 05 / MÚSICA ============== -->
+<section class="musica" id="musica">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow">05 / Music</div>
+        <h2 class="section-title">Otro<br><em>instrumento</em></h2>
+      </div>
+      <p class="meta-tag">
+        Guitarra, bajo, composición. Música original para mis propios proyectos audiovisuales y, a veces, sólo para mí.
+      </p>
+    </div>
+
+    <div class="music-grid">
+      <div class="music-player reveal">
+        <div class="player-cover">
+          <span class="player-cover-symbol">♪</span>
+        </div>
+        <div class="player-track">
+          <div class="player-track-name"><em>Habitación 304</em></div>
+          <div class="player-track-time">02:48</div>
+        </div>
+        <div class="player-controls">
+          <button class="player-btn" aria-label="Anterior">⏮</button>
+          <button class="player-btn main" aria-label="Reproducir">▶</button>
+          <button class="player-btn" aria-label="Siguiente">⏭</button>
+        </div>
+      </div>
+
+      <div class="music-text reveal">
+        <h3>La música no es un <em>hobby aparte</em>.</h3>
+        <p>La guitarra a los doce, el bajo a los diecinueve, las primeras composiciones cuando empecé a escribir guiones. La música entró por dentro, no por afuera — y la mayoría de las veces es lo que nace primero.</p>
+        <p>Compongo la música de mis películas. A veces la película nace de un riff. Otras veces la canción sólo existe para acompañar una escena que aún no he rodado.</p>
+
+        <ul class="music-list">
+          <li><span class="num">01</span><span>Habitación 304</span><span class="duration">02:48</span></li>
+          <li><span class="num">02</span><span>El último jardín · Tema</span><span class="duration">03:21</span></li>
+          <li><span class="num">03</span><span>Sirocco · Apertura</span><span class="duration">02:14</span></li>
+          <li><span class="num">04</span><span>Nocturno (instrumental)</span><span class="duration">04:02</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- v6 — Vídeos: la música también se ve. Enrike tocando. -->
+    <div class="music-videos reveal">
+      <div class="music-videos-header">
+        <h3>Tocando <em>en directo</em>.</h3>
+        <p>La música no es solo audio — es manos sobre el instrumento. Sesiones, ensayos y grabaciones en proceso.</p>
+      </div>
+      <div class="music-videos-grid">
+        <div class="music-video-card" data-lightbox="music-video" data-vimeo="">
+          <div class="music-video-thumb">
+            <img src="https://images.unsplash.com/photo-1510915361894-db8b7855a8a5?w=900&q=80" alt="">
+          </div>
+          <div class="music-video-title"><em>Habitación 304</em> · estudio</div>
+          <div class="music-video-meta">BAJO · GRABACIÓN · 2024</div>
+        </div>
+        <div class="music-video-card" data-lightbox="music-video" data-vimeo="">
+          <div class="music-video-thumb">
+            <img src="https://images.unsplash.com/photo-1511192336575-5a79af67a629?w=900&q=80" alt="">
+          </div>
+          <div class="music-video-title"><em>Nocturno</em> · live</div>
+          <div class="music-video-meta">GUITARRA · DIRECTO · 2023</div>
+        </div>
+        <div class="music-video-card" data-lightbox="music-video" data-vimeo="">
+          <div class="music-video-thumb">
+            <img src="https://images.unsplash.com/photo-1456081101716-74e616ee23a8?w=900&q=80" alt="">
+          </div>
+          <div class="music-video-title"><em>Sirocco</em> · ensayo</div>
+          <div class="music-video-meta">COMPOSICIÓN · 2023</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============== 06 / A.I ============== -->
+<section class="ai" id="ai">
+  <div class="container">
+    <div>
+      <div class="eyebrow">06 / A.I — Laboratory</div>
+      <h2 class="section-title">In <em>progress</em>.</h2>
+    </div>
+
+    <div class="ai-content">
+      <div class="ai-text reveal">
+        <h2>Construyo cosas con <em>vibe coding</em><br>y con la IA como herramienta.</h2>
+        <p>Un espacio para los proyectos en construcción: aplicaciones, herramientas y experimentos en la intersección entre cine, lenguaje e inteligencia artificial. Mitad <em>vibe coding</em> — ideas que ejecuto sin saber programar — y mitad <em>IA como instrumento</em>: una herramienta más en el oficio, como la cámara o el bajo.</p>
+        <p>No soy ingeniero. Soy alguien con ideas que ahora, por primera vez en la historia, puede ejecutarlas sin pedirle permiso a nadie.</p>
+        <div class="ai-status">
+          <span class="dot"></span>
+          <span>FIRST RELEASE · 2026</span>
+        </div>
+      </div>
+
+      <div class="ai-visual reveal">
+        <span class="line"><span class="comment">// Proyecto en desarrollo — 2026</span></span>
+        <span class="line"><span class="keyword">const</span> <span class="var">ideas</span> = <span class="string">"infinitas"</span>;</span>
+        <span class="line"><span class="keyword">const</span> <span class="var">ejecucion</span> = <span class="string">"ahora posible"</span>;</span>
+        <span class="line"></span>
+        <span class="line"><span class="keyword">function</span> <span class="var">construir</span>(idea) {</span>
+        <span class="line">&nbsp;&nbsp;<span class="keyword">return</span> idea</span>
+        <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;.<span class="var">pensar</span>()</span>
+        <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;.<span class="var">prototipar</span>()</span>
+        <span class="line">&nbsp;&nbsp;&nbsp;&nbsp;.<span class="var">publicar</span>();</span>
+        <span class="line">}</span>
+        <span class="line"></span>
+        <span class="line"><span class="comment">// loading...<span class="ai-cursor"></span></span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 07 / ABOUT ============== -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="eyebrow">07 / About</div>
+    <h2 class="section-title">Sobre<br>Enrike</h2>
+
+    <div class="about-grid">
+      <div class="about-portrait reveal">
+        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=900&q=80" alt="">
+      </div>
+      <div class="about-text reveal">
+        <h3>Una mirada formada en distintos oficios — y a veces es <em>el mismo oficio</em>.</h3>
+        <p>Crecí mirando películas que no entendía del todo. Primero hice fotografía, después escribí mis primeros guiones, después dirigí, después actué en uno por accidente — y descubrí que era la misma cosa vista desde otro ángulo.</p>
+        <p>La música llegó por dentro: la guitarra a los doce, el bajo a los diecinueve, las primeras composiciones cuando empecé a escribir guiones. Ahora trabajo entre Madrid y donde haga falta, dirigiendo proyectos propios y colaborando con marcas, artistas y productoras. Y construyendo herramientas con IA que hace cinco años no existían.</p>
+        <p>Esta web es el intento de mostrar todo eso como lo que es: <em>una sola cosa</em>.</p>
+
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="num">38+</div>
+            <div class="label">Proyectos audiovisuales</div>
+          </div>
+          <div class="about-stat">
+            <div class="num">12</div>
+            <div class="label">Festivales internacionales</div>
+          </div>
+          <div class="about-stat">
+            <div class="num">8</div>
+            <div class="label">Años en el oficio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== 08 / CONTACT ============== -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="eyebrow">08 / Contact</div>
+    <h1 class="contact-headline">
+      ¿Tienes una idea<br>
+      o un proyecto?<br>
+      <a href="mailto:enrikesegarra@gmail.com">enrikesegarra@gmail.com</a>
+    </h1>
+
+    <div class="contact-grid">
+      <div>
+        <div class="contact-block-label">REPRESENTACIÓN — ACTOR</div>
+        <div class="contact-block-value">
+          Agencia Pendiente<br>
+          <a href="mailto:agente@agencia.com">agente@agencia.com</a>
+        </div>
+      </div>
+      <div>
+        <div class="contact-block-label">PRODUCCIÓN AUDIOVISUAL</div>
+        <div class="contact-block-value">
+          <a href="mailto:produccion@enrikesegarra.com">produccion@enrikesegarra.com</a>
+        </div>
+      </div>
+      <div>
+        <div class="contact-block-label">REDES</div>
+        <div class="contact-block-value">
+          <a href="#">Instagram ↗</a><br>
+          <a href="#">Vimeo ↗</a><br>
+          <a href="#">LinkedIn ↗</a>
+        </div>
+      </div>
+      <div>
+        <div class="contact-block-label">UBICACIÓN</div>
+        <div class="contact-block-value">
+          Madrid<br>
+          Disponible para viajar
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© ENRIKE SEGARRA — 2026</span>
+  <span>DESIGN & BUILD · IN-HOUSE</span>
+</footer>
+
+<!-- ============== LIGHTBOX (3 modos: simple / proyecto / monografía) ============== -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <div class="lightbox-content">
+    <button class="lightbox-close" aria-label="Cerrar">✕</button>
+    <div id="lightbox-body"></div>
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+  <!-- Tira de miniaturas (solo se usa en modo monografía) -->
+  <div class="photo-monograph-thumbs-trigger" id="thumbs-trigger" hidden></div>
+  <div class="photo-monograph-thumbs" id="monograph-thumbs" hidden></div>
+</div>
+
+
+</body>
+</html>
