@@ -5,7 +5,7 @@
 
 :root {
   --tx-paper:       url('/textures/paper-base-elegant.png');
-  --tx-hero-canvas: url('/textures/hero-bauhaus-canvas.webp');
+  --tx-hero-canvas: url('/hero-bauhaus-final.png');
   --tx-tear-clean:  url('/textures/tear-edge-clean.png');
   --tx-fiber:       url('/textures/paper-fiber-overlay.png');
 }
@@ -34,20 +34,6 @@
   opacity: 0.15;
 }
 
-/* --- Borde rasgado inferior: rotura limpia controlada --- */
-.tx-tear-bottom {
-  background-image: var(--tx-tear-clean);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  height: 70px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  pointer-events: none;
-  z-index: 10;
-}
-
 /* ===================================================================
    HERO v2 — Canvas Bauhaus elegante
    Un solo asset integrado (papel + formas). Cero capas de mancha.
@@ -61,14 +47,18 @@
 .hero .hero-stage,
 .hero .hero-footer {
   position: relative;
-  z-index: 2;
+  z-index: 12;
 }
 
-/* Capa única — canvas Bauhaus (papel cremoso + formas planas integradas) */
+/* Capa única — canvas Bauhaus (papel cremoso + formas planas integradas).
+   El asset es 16:9 (1672x941). Usamos cover para mantener proporciones
+   reales: en viewports 16:9 encaja exacto; en otros recortamos un poco
+   por los bordes pero el centro queda intacto y las formas no se deforman. */
 .hero-bg-canvas {
   background-image: var(--tx-hero-canvas);
   background-size: cover;
-  background-position: center;
+  background-position: center 38%;
+  background-repeat: no-repeat;
   mix-blend-mode: normal;
   opacity: 1;
   z-index: 0;
