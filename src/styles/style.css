@@ -91,8 +91,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    mix-blend-mode: difference;
-    color: var(--paper);
+    color: var(--ink);
   }
 
   nav.top ul {
@@ -200,8 +199,8 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -52%);
-    width: min(72svh, 58vw);
+    transform: translate(-50%, -50%);
+    width: min(56svh, 40vw);
     aspect-ratio: 1 / 1;
   }
 
