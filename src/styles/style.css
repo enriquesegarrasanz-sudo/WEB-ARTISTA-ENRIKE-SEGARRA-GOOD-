@@ -186,20 +186,31 @@
 
     .hero-figure {
       left: 52%;
-      top: 8%;
-      height: 64%;
+      top: 7.5%;
+      height: 65%;
     }
 
     .hero-nav--desktop-tablet {
       position: absolute;
-      top: 44px;
-      right: 135px;
+      top: 34px;
+      right: 120px;
       display: flex;
       align-items: center;
-      gap: 28px;
-      z-index: 5;
-      font-size: 14px;
-      letter-spacing: 1.2px;
+      gap: 26px;
+      z-index: 6;
+      font-family: "Bebas Neue", "Oswald", "Archivo Condensed", "Arial Narrow", sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      line-height: 1;
+      text-transform: uppercase;
+      color: #111111;
+      white-space: nowrap;
+    }
+
+    .hero-nav--desktop-tablet a:hover {
+      opacity: 0.65;
+      transform: translateY(-1px);
     }
 
     .hero-menu-button,
