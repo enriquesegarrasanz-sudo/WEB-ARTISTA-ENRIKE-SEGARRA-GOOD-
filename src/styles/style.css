@@ -30,7 +30,7 @@
     /* === Tipografías === */
     --font-display:   'Bebas Neue', sans-serif;
     --font-editorial: 'Fraunces', serif;
-    --font-body:      'EB Garamond', serif;
+    --font-body:      'Fraunces', serif;
 
     /* === Layout === */
     --container: 1280px;
@@ -550,7 +550,7 @@
      CINE / FILMMAKER
      =================================================================== */
   section.cine {
-    background-image: url('/FILMAKING/ChatGPT Image 29 abr 2026, 20_47_59.png');
+    background-image: url('/FILMAKING/ChatGPT Image 29 abr 2026, 23_06_34 (1).png');
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
@@ -558,13 +558,13 @@
 
   @media (max-width: 1024px) and (min-width: 641px) {
     section.cine {
-      background-image: url('/FILMAKING/ChatGPT Image 29 abr 2026, 21_35_39 (2).png');
+      background-image: url('/FILMAKING/ChatGPT Image 29 abr 2026, 23_06_34 (2).png');
     }
   }
 
   @media (max-width: 640px) {
     section.cine {
-      background-image: url('/FILMAKING/ChatGPT Image 29 abr 2026, 21_35_39 (1).png');
+      background-image: url('/FILMAKING/ChatGPT Image 29 abr 2026, 23_06_34 (3).png');
     }
   }
 
@@ -604,6 +604,13 @@
     transition: transform 1s cubic-bezier(.2,.7,.2,1), filter .4s;
   }
   .reel-stage:hover img { transform: scale(1.03); filter: brightness(0.95); }
+
+  .reel-iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: none;
+  }
 
   .reel-overlay {
     position: absolute;
