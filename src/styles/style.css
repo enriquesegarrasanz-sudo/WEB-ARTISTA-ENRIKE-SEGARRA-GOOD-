@@ -624,6 +624,13 @@
     background: #000;
   }
 
+  .fullscreen-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    cursor: pointer;
+  }
+
   .custom-controls {
     position: absolute;
     bottom: 0;

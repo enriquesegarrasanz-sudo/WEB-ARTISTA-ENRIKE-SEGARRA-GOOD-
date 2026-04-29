@@ -544,9 +544,10 @@ import { SCRIPTS } from './data/scripts.js';
 
       const html = `
         <div class="custom-video-player" id="modal-player-container">
+          <div class="fullscreen-overlay" id="fullscreen-overlay"></div>
           <iframe
             id="vimeo-player"
-            src="https://player.vimeo.com/video/1138626341?badge=0&amp;byline=0&amp;title=0&amp;controls=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;loop=1"
+            src="https://player.vimeo.com/video/1138626341?badge=0&amp;byline=0&amp;title=0&amp;controls=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
             allowfullscreen
             style="width:100%; height:100%; aspect-ratio:16/9; border:none;">
@@ -615,13 +616,23 @@ import { SCRIPTS } from './data/scripts.js';
 
     let isPlaying = true;
 
-    // Click en el video para fullscreen
-    if (iframe && container) {
-      iframe.addEventListener('click', () => {
-        if (container.requestFullscreen) {
-          container.requestFullscreen();
-        } else if (container.webkitRequestFullscreen) {
-          container.webkitRequestFullscreen();
+    // Click en el overlay para fullscreen
+    const fullscreenOverlay = document.getElementById('fullscreen-overlay');
+    if (fullscreenOverlay && container) {
+      fullscreenOverlay.addEventListener('click', async (e) => {
+        e.stopPropagation();
+        try {
+          if (container.requestFullscreen) {
+            await container.requestFullscreen();
+          } else if (container.webkitRequestFullscreen) {
+            container.webkitRequestFullscreen();
+          } else if (container.mozRequestFullScreen) {
+            container.mozRequestFullScreen();
+          } else if (container.msRequestFullscreen) {
+            container.msRequestFullscreen();
+          }
+        } catch (err) {
+          console.error('Error entering fullscreen:', err);
         }
       });
     }
