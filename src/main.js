@@ -522,11 +522,129 @@ import { SCRIPTS } from './data/scripts.js';
     archiveBtn.addEventListener('click', renderArchive);
   }
 
-  /* ============== Reel expand: clic abre video con controles ============== */
+  /* ============== Reel expand: clic abre video con controles personalizados ============== */
   const reelStage = document.getElementById('reel-stage');
   if (reelStage) {
     reelStage.addEventListener('click', () => {
-      const html = `<iframe src="https://player.vimeo.com/video/1138626341?badge=0&amp;byline=0&amp;title=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen style="width:100%; height:100%; aspect-ratio:16/9; border:none;"></iframe>`;
+      const html = `
+        <div class="custom-video-player">
+          <iframe
+            id="vimeo-player"
+            src="https://player.vimeo.com/video/1138626341?badge=0&amp;byline=0&amp;title=0&amp;controls=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            allowfullscreen
+            style="width:100%; height:100%; aspect-ratio:16/9; border:none;">
+          </iframe>
+          <div class="custom-controls">
+            <div class="progress-bar">
+              <div class="progress-fill"></div>
+              <div class="progress-handle"></div>
+            </div>
+            <div class="controls-bottom">
+              <button class="control-btn play-btn" aria-label="Reproducir/Pausar">
+                <span class="play-icon">▶</span>
+                <span class="pause-icon" style="display:none;">⏸</span>
+              </button>
+              <div class="time-display">
+                <span class="current-time">00:00</span>
+                <span class="separator">/</span>
+                <span class="total-time">00:00</span>
+              </div>
+              <div class="spacer"></div>
+              <div class="volume-control">
+                <button class="control-btn volume-btn" aria-label="Volumen">
+                  <span class="volume-icon">🔊</span>
+                </button>
+                <input type="range" class="volume-slider" min="0" max="100" value="0" aria-label="Control de volumen">
+              </div>
+              <button class="control-btn fullscreen-btn" aria-label="Pantalla completa">⛶</button>
+            </div>
+          </div>
+        </div>
+      `;
       openLightbox({ html, caption: 'SHOWREEL — 2026', mode: 'simple' });
+
+      // Inicializar Vimeo Player API
+      setTimeout(() => {
+        if (window.Vimeo && document.getElementById('vimeo-player')) {
+          const iframe = document.getElementById('vimeo-player');
+          const player = new Vimeo.Player(iframe);
+          initCustomControls(player);
+        }
+      }, 100);
     });
+  }
+
+  /* ============== Inicializar controles personalizados ============== */
+  function initCustomControls(player) {
+    const playBtn = document.querySelector('.play-btn');
+    const volumeBtn = document.querySelector('.volume-btn');
+    const volumeSlider = document.querySelector('.volume-slider');
+    const fullscreenBtn = document.querySelector('.fullscreen-btn');
+    const progressBar = document.querySelector('.progress-bar');
+    const progressFill = document.querySelector('.progress-fill');
+    const currentTimeEl = document.querySelector('.current-time');
+    const totalTimeEl = document.querySelector('.total-time');
+    const playIcon = document.querySelector('.play-icon');
+    const pauseIcon = document.querySelector('.pause-icon');
+
+    let isPlaying = true;
+
+    // Play/Pause
+    playBtn.addEventListener('click', async () => {
+      if (isPlaying) {
+        await player.pause();
+        playIcon.style.display = 'inline';
+        pauseIcon.style.display = 'none';
+      } else {
+        await player.play();
+        playIcon.style.display = 'none';
+        pauseIcon.style.display = 'inline';
+      }
+      isPlaying = !isPlaying;
+    });
+
+    // Volumen
+    volumeSlider.addEventListener('input', async (e) => {
+      const volume = e.target.value / 100;
+      await player.setVolume(volume);
+    });
+
+    // Pantalla completa
+    fullscreenBtn.addEventListener('click', () => {
+      const container = document.querySelector('.custom-video-player');
+      if (container.requestFullscreen) {
+        container.requestFullscreen();
+      }
+    });
+
+    // Actualizar tiempo y barra de progreso
+    player.on('timeupdate', (data) => {
+      const percent = (data.seconds / data.duration) * 100;
+      progressFill.style.width = percent + '%';
+      currentTimeEl.textContent = formatTime(data.seconds);
+      totalTimeEl.textContent = formatTime(data.duration);
+    });
+
+    // Click en barra de progreso
+    progressBar.addEventListener('click', (e) => {
+      const rect = progressBar.getBoundingClientRect();
+      const percent = (e.clientX - rect.left) / rect.width;
+      player.getDuration().then(duration => {
+        player.setCurrentTime(percent * duration);
+      });
+    });
+
+    // Estado inicial
+    player.getVolume().then(vol => {
+      volumeSlider.value = vol * 100;
+    });
+  }
+
+  /* ============== Formato de tiempo ============== */
+  function formatTime(seconds) {
+    if (!seconds || isNaN(seconds)) return '00:00';
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
   }
