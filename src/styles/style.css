@@ -170,11 +170,63 @@
 
   .hero-figure {
     position: absolute;
+    aspect-ratio: 1;
     width: auto;
     transform: translateX(-50%);
     z-index: 3;
+  }
+
+  .hero-figure > img {
+    display: block;
+    height: 100%;
+    width: auto;
     pointer-events: none;
     user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  /* === HERO HOTSPOTS === */
+  .hero-hotspot {
+    position: absolute;
+    display: block;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 4;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+  }
+
+  .hero-hotspot-label {
+    position: absolute;
+    left: 50%;
+    bottom: 4px;
+    transform: translateX(-50%) translateY(8px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--font-display);
+    font-size: clamp(10px, 1.1vw, 14px);
+    letter-spacing: 0.25em;
+    color: var(--hc, var(--ink));
+    opacity: 0;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .hero-hotspot-label::before {
+    content: '';
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: currentColor;
+  }
+
+  .hero-hotspot:hover .hero-hotspot-label,
+  .hero-hotspot:focus-visible .hero-hotspot-label {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
   }
 
   /* Desktop ≥ 1181px */
@@ -192,14 +244,14 @@
 
     .hero-nav--desktop-tablet {
       position: absolute;
-      top: 28px;
+      top: 26px;
       right: 200px;
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 26px;
       z-index: 6;
       font-family: "Bebas Neue", "Oswald", "Archivo Condensed", "Arial Narrow", sans-serif;
-      font-size: 26px;
+      font-size: 22px;
       font-weight: 700;
       letter-spacing: 2px;
       line-height: 1;
