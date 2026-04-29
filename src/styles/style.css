@@ -415,7 +415,7 @@
     align-items: center;
     width: 100%;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center;
     z-index: 3;
     /* mobile default */
