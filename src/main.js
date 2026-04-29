@@ -523,14 +523,30 @@ import { SCRIPTS } from './data/scripts.js';
   }
 
   /* ============== Reel expand: clic abre video con controles personalizados ============== */
+  let mainPlayer = null;
   const reelStage = document.getElementById('reel-stage');
   if (reelStage) {
-    reelStage.addEventListener('click', () => {
+    // Inicializar player principal
+    const mainIframe = reelStage.querySelector('.reel-iframe');
+    if (mainIframe && window.Vimeo) {
+      mainPlayer = new Vimeo.Player(mainIframe);
+    }
+
+    reelStage.addEventListener('click', async () => {
+      let currentTime = 0;
+      if (mainPlayer) {
+        try {
+          currentTime = await mainPlayer.getCurrentTime();
+        } catch (e) {
+          currentTime = 0;
+        }
+      }
+
       const html = `
-        <div class="custom-video-player">
+        <div class="custom-video-player" id="modal-player-container">
           <iframe
             id="vimeo-player"
-            src="https://player.vimeo.com/video/1138626341?badge=0&amp;byline=0&amp;title=0&amp;controls=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1"
+            src="https://player.vimeo.com/video/1138626341?badge=0&amp;byline=0&amp;title=0&amp;controls=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=0&amp;loop=1"
             allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
             allowfullscreen
             style="width:100%; height:100%; aspect-ratio:16/9; border:none;">
@@ -565,10 +581,17 @@ import { SCRIPTS } from './data/scripts.js';
       openLightbox({ html, caption: 'SHOWREEL — 2026', mode: 'simple' });
 
       // Inicializar Vimeo Player API
-      setTimeout(() => {
+      setTimeout(async () => {
         if (window.Vimeo && document.getElementById('vimeo-player')) {
           const iframe = document.getElementById('vimeo-player');
           const player = new Vimeo.Player(iframe);
+
+          // Saltar al tiempo donde estaba
+          if (currentTime > 0) {
+            await player.setCurrentTime(currentTime);
+          }
+
+          await player.play();
           initCustomControls(player);
         }
       }, 100);
@@ -587,8 +610,21 @@ import { SCRIPTS } from './data/scripts.js';
     const totalTimeEl = document.querySelector('.total-time');
     const playIcon = document.querySelector('.play-icon');
     const pauseIcon = document.querySelector('.pause-icon');
+    const iframe = document.getElementById('vimeo-player');
+    const container = document.getElementById('modal-player-container');
 
     let isPlaying = true;
+
+    // Click en el video para fullscreen
+    if (iframe && container) {
+      iframe.addEventListener('click', () => {
+        if (container.requestFullscreen) {
+          container.requestFullscreen();
+        } else if (container.webkitRequestFullscreen) {
+          container.webkitRequestFullscreen();
+        }
+      });
+    }
 
     // Play/Pause
     playBtn.addEventListener('click', async () => {
