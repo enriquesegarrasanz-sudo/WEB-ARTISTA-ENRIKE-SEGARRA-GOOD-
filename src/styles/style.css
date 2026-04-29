@@ -612,6 +612,42 @@
     border: none;
   }
 
+  .reel-overlay-clean {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .reel-stage:hover .reel-overlay-clean {
+    background: rgba(0, 0, 0, 0.35);
+  }
+
+  .reel-play-button {
+    width: 72px;
+    height: 72px;
+    border: 2px solid var(--paper);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--paper);
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(8px);
+    transition: all 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+
+  .reel-stage:hover .reel-play-button {
+    transform: scale(1.15);
+    background: var(--red);
+    border-color: var(--red);
+  }
+
   .reel-overlay {
     position: absolute;
     inset: 0;

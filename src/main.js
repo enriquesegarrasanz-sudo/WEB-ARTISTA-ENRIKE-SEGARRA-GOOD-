@@ -521,3 +521,12 @@ import { SCRIPTS } from './data/scripts.js';
   if (archiveBtn) {
     archiveBtn.addEventListener('click', renderArchive);
   }
+
+  /* ============== Reel expand: clic abre video con controles ============== */
+  const reelStage = document.getElementById('reel-stage');
+  if (reelStage) {
+    reelStage.addEventListener('click', () => {
+      const html = `<iframe src="https://player.vimeo.com/video/1138626341?badge=0&amp;byline=0&amp;title=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" allowfullscreen style="width:100%; height:100%; aspect-ratio:16/9; border:none;"></iframe>`;
+      openLightbox({ html, caption: 'SHOWREEL — 2026', mode: 'simple' });
+    });
+  }
