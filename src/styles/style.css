@@ -494,57 +494,20 @@
      padding muy reducido. La sección casi cabe en un solo "respiro"
      entre el Hero y el Reel. */
   .manifiesto {
-    background: var(--paper-warm);
-    border-bottom: 1px solid var(--line);
-    padding-top:    clamp(8px, 1.1vh, 15px);
-    padding-bottom: clamp(8px, 1.1vh, 15px);
+    overflow: hidden;
+    line-height: 0;
+    padding: 0;
   }
 
-  .manifiesto-inner {
-    max-width: var(--container);
-    margin: 0 auto;
+  .manifiesto-picture {
+    display: block;
+    width: 100%;
   }
 
-  .manifiesto-statement {
-    font-family: var(--font-editorial);
-    font-weight: 300;
-    font-size: clamp(14px, 1.6vw, 22px);
-    line-height: 1.08;
-    letter-spacing: -0.012em;
-    max-width: 1100px;
-  }
-
-  .manifiesto-statement em {
-    font-style: italic;
-    font-weight: 400;
-  }
-
-  /* Acentos cromáticos */
-  .manifiesto .acc-red    { color: var(--red); }
-  .manifiesto .acc-blue   { color: var(--blue); }
-  .manifiesto .acc-green  { color: var(--green); }
-
-  /* Coda — nota al pie minimal a la derecha */
-  .manifiesto-coda {
-    margin-top: clamp(8px, 1vh, 13px);
-    margin-left: auto;
-    font-family: var(--font-editorial);
-    font-style: italic;
-    font-weight: 300;
-    font-size: clamp(13px, 1.05vw, 15px);
-    line-height: 1.45;
-    color: var(--ink-soft);
-    border-top: 1px solid var(--line);
-    padding-top: 10px;
-    text-align: right;
-    max-width: 320px;
-  }
-
-  .manifiesto-coda em { font-weight: 400; }
-
-  @media (max-width: 700px) {
-    .manifiesto-statement br { display: none; }
-    .manifiesto-coda { text-align: left; margin-left: 0; }
+  .manifiesto-img {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   /* ===================================================================
@@ -586,6 +549,25 @@
   /* ===================================================================
      CINE / FILMMAKER
      =================================================================== */
+  section.cine {
+    background-image: url('/FILMAKING/ChatGPT Image 29 abr 2026, 20_47_59.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+
+  @media (max-width: 1024px) and (min-width: 641px) {
+    section.cine {
+      background-image: url('/FILMAKING/ChatGPT Image 29 abr 2026, 21_35_39 (2).png');
+    }
+  }
+
+  @media (max-width: 640px) {
+    section.cine {
+      background-image: url('/FILMAKING/ChatGPT Image 29 abr 2026, 21_35_39 (1).png');
+    }
+  }
+
   .cine .container { max-width: var(--container); margin: 0 auto; }
 
   .section-header {
