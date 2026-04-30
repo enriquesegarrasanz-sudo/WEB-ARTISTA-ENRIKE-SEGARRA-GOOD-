@@ -8,9 +8,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Condensed:wght@700&family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap" rel="stylesheet">
-  <script type="module" crossorigin src="/WEB-ARTISTA-ENRIKE-SEGARRA-GOOD-/assets/index-Dr3v9_nZ.js"></script>
-  <link rel="stylesheet" crossorigin href="/WEB-ARTISTA-ENRIKE-SEGARRA-GOOD-/assets/index-CHDHAyHT.css">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Condensed:wght@700&family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&display=swap" rel="stylesheet">
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script type="module" crossorigin src="/WEB-ARTISTA-ENRIKE-SEGARRA-GOOD-/assets/index-CgpxsXgZ.js"></script>
+  <link rel="stylesheet" crossorigin href="/WEB-ARTISTA-ENRIKE-SEGARRA-GOOD-/assets/index-D4F6GD3S.css">
 </head>
 <body>
 
@@ -25,6 +26,9 @@
     </filter>
   </defs>
 </svg>
+
+<!-- ============== HERO + FILMMAKER — fondo continuo único ============== -->
+<div class="bauhaus-stage">
 
 <!-- ============== HERO ============== -->
 <section class="hero" id="hero">
@@ -68,46 +72,6 @@
 
 </section>
 
-<!-- ============== MARQUEE ============== -->
-<div class="marquee">
-  <div class="marquee-track">
-    <span class="mq-word">FILMMAKER</span><span class="mq-star mq-star--red">✦</span>
-    <span class="mq-word">PHOTOGRAPHER</span><span class="mq-star mq-star--blue">✦</span>
-    <span class="mq-word">WRITER</span><span class="mq-star mq-star--black">✦</span>
-    <span class="mq-word">ACTOR</span><span class="mq-star mq-star--yellow">✦</span>
-    <span class="mq-word">MUSICIAN</span><span class="mq-star mq-star--green">✦</span>
-    <span class="mq-word">A.I.</span><span class="mq-star mq-star--yellow">✦</span>
-    <span class="mq-word">FILMMAKER</span><span class="mq-star mq-star--red">✦</span>
-    <span class="mq-word">PHOTOGRAPHER</span><span class="mq-star mq-star--blue">✦</span>
-    <span class="mq-word">WRITER</span><span class="mq-star mq-star--black">✦</span>
-    <span class="mq-word">ACTOR</span><span class="mq-star mq-star--yellow">✦</span>
-    <span class="mq-word">MUSICIAN</span><span class="mq-star mq-star--green">✦</span>
-    <span class="mq-word">A.I.</span><span class="mq-star mq-star--yellow">✦</span>
-    <span class="mq-word">FILMMAKER</span><span class="mq-star mq-star--red">✦</span>
-    <span class="mq-word">PHOTOGRAPHER</span><span class="mq-star mq-star--blue">✦</span>
-    <span class="mq-word">WRITER</span><span class="mq-star mq-star--black">✦</span>
-    <span class="mq-word">ACTOR</span><span class="mq-star mq-star--yellow">✦</span>
-    <span class="mq-word">MUSICIAN</span><span class="mq-star mq-star--green">✦</span>
-    <span class="mq-word">A.I.</span><span class="mq-star mq-star--yellow">✦</span>
-    <span class="mq-word">FILMMAKER</span><span class="mq-star mq-star--red">✦</span>
-    <span class="mq-word">PHOTOGRAPHER</span><span class="mq-star mq-star--blue">✦</span>
-    <span class="mq-word">WRITER</span><span class="mq-star mq-star--black">✦</span>
-    <span class="mq-word">ACTOR</span><span class="mq-star mq-star--yellow">✦</span>
-    <span class="mq-word">MUSICIAN</span><span class="mq-star mq-star--green">✦</span>
-    <span class="mq-word">A.I.</span><span class="mq-star mq-star--yellow">✦</span>
-  </div>
-</div>
-
-<!-- ============== MANIFIESTO ============== -->
-<section class="manifiesto" id="manifiesto">
-  <picture class="manifiesto-picture reveal">
-    <source media="(max-width: 767px)"  srcset="/MANIFIESTO/manifiesto-mobile.png">
-    <source media="(max-width: 1180px)" srcset="/MANIFIESTO/manifiesto-tablet.png">
-    <img src="/MANIFIESTO/manifiesto-desktop.png"
-         alt="No soy muchas cosas. Soy una sola persona que se expresa en distintos lenguajes."
-         class="manifiesto-img">
-  </picture>
-</section>
 
 <!-- ============== 01 / CINE ============== -->
 <section class="cine" id="cine">
@@ -126,14 +90,18 @@
       </p>
     </div>
 
-    <div class="reel-stage reveal" data-lightbox="reel">
-      <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1600&q=80" alt="Reel 2026">
-      <div class="reel-overlay">
-        <div class="reel-play">▶</div>
-      </div>
+    <div class="reel-stage reveal" id="reel-stage">
+      <iframe
+        src="https://player.vimeo.com/video/1138626341?badge=0&amp;byline=0&amp;title=0&amp;controls=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;autoplay=1&amp;loop=1&amp;muted=1"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        class="reel-iframe"
+        title="REEL FILMMAKER - ENRIKE SEGARRA">
+      </iframe>
       <div class="reel-info">
         <span>SHOWREEL — 2026</span>
-        <span class="duration">02:14</span>
+        <span class="duration">FILMMAKER</span>
       </div>
     </div>
 
@@ -301,6 +269,8 @@
     </div>
   </div>
 </section>
+
+</div><!-- /.bauhaus-stage -->
 
 
 <!-- ============== 02 / ACTOR ============== -->
