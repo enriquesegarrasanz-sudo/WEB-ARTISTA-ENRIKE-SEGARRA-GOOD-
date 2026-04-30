@@ -156,16 +156,24 @@
   }
 
   /* ===================================================================
-     HERO — estructura responsive con tres fondos art-directed
+     BAUHAUS STAGE — fondo continuo único para Hero + Filmmaker
+     =================================================================== */
+  .bauhaus-stage {
+    background-image: url('/WEB-ARTISTA-ENRIKE-SEGARRA-GOOD-/FILMAKING/bauhaus-hero.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+
+  /* ===================================================================
+     HERO — estructura responsive
      =================================================================== */
   .hero {
     position: relative;
     width: 100%;
     overflow: hidden;
     padding: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: transparent;
   }
 
   .hero-figure {
@@ -245,7 +253,6 @@
   @media (min-width: 1181px) {
     .hero {
       aspect-ratio: 2 / 1;
-      background-image: url('/HERO%20PC.png');
     }
 
     .hero-figure {
@@ -287,7 +294,6 @@
   @media (min-width: 769px) and (max-width: 1180px) {
     .hero {
       aspect-ratio: 4 / 3;
-      background-image: url('/HERO%20TABLET.png');
     }
 
     .hero-figure {
@@ -331,8 +337,7 @@
     .hero {
       min-height: 100svh;
       aspect-ratio: 9 / 16;
-      background-image: url('/HERO%20M%C3%93VIL.png');
-      background-position: center top;
+      background: transparent;
       overflow: hidden;
     }
 
@@ -550,22 +555,8 @@
      CINE / FILMMAKER
      =================================================================== */
   section.cine {
-    background-image: url('/FILMAKING/ChatGPT Image 29 abr 2026, 23_06_34 (1).png');
-    background-size: cover;
-    background-position: center top;
-    background-repeat: no-repeat;
-  }
-
-  @media (max-width: 1024px) and (min-width: 641px) {
-    section.cine {
-      background-image: url('/FILMAKING/ChatGPT Image 29 abr 2026, 23_06_34 (2).png');
-    }
-  }
-
-  @media (max-width: 640px) {
-    section.cine {
-      background-image: url('/FILMAKING/ChatGPT Image 29 abr 2026, 23_06_34 (3).png');
-    }
+    padding-top: clamp(140px, 18vh, 240px);
+    background: transparent;
   }
 
   .cine .container { max-width: var(--container); margin: 0 auto; }
